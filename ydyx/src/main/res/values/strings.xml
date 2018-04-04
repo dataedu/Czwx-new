@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="app_name">浙江海洋</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_welcome">迎新办理查询</string>
+    <string name="app_welcome_know">迎新须知</string>
+  <string name="rootUrl">http://192.168.3.161:8081/mp-welstu/</string>
+  
+  <string name="weixin_AppID">wx037b22201ccf3237</string>
+  <string name="weixin_AppSecret">553c31d1390b73093f1c5d0956c93c6b</string>
+  <string name="qq_APPID">1104623746</string>
+  <string name="qq_APPKEY">Aj7v9f15XRV7LxJ6</string>
+  <string name="setting_feedback_hint">有什么问题或者建议，告诉我们吧!</string>
+  <string name="about">欢迎使用e报到</string>
+   <string name="about_copyrights"></string>
+  <string-array name="cities">
+        <item> 是</item>
+        <item> 否 </item>
+    </string-array>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+</resources>

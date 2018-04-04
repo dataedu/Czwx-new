@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/view_bg"
+    android:orientation="vertical" >
+
+    <include
+        layout="@layout/core_title_back" />
+
+    <RelativeLayout
+        android:id="@+id/spyj_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dip"
+        android:layout_marginTop="10dip"
+        android:background="@android:color/white" >
+
+        <EditText
+            android:id="@+id/spyj_edit"
+            android:layout_width="match_parent"
+            android:layout_height="100dip"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="意见（必填）"
+            android:padding="10dip"
+            android:textColor="#212121"
+            android:textSize="14sp"
+            android:maxLength="200" />
+       
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#c4c3c3" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#c4c3c3" />
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="42dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="20dip"
+        android:background="@color/nosubmit"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

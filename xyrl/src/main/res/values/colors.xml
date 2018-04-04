@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <color name="rcap_txt">#212121</color>
+     <color name="rcap_blue">#2196f3</color>
+     
+     <color name="jiaqi">#ff0000</color>
+     <color name="buban">#32b16c</color>
+</resources>

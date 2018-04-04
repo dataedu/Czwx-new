@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoTitle" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoTitle.Translucent">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <!--透明，有任务栏电量时间等-->
+    <style name="NoTitleTranslucentTheme" parent="FullScreenTheme">
+        <item name="android:windowBackground">@color/black50</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!--全屏-->
+    <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="MyDialog" parent="@android:style/Theme.DeviceDefault.DialogWhenLarge">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+    </style>
+
+    <style name="title_txt">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="but_back">
+        <item name="android:paddingLeft">8dip</item>
+        <item name="android:text"> 返回</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@mipmap/back_press</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="setting_txt">
+        <item name="android:textColor">#212121</item>
+        <item name="android:textSize">?attr/textSize14</item>
+        <item name="android:layout_marginLeft">10.0dip</item>
+        <item name="android:layout_marginTop">12.5dip</item>
+        <item name="android:layout_marginBottom">12.5dip</item>
+    </style>
+
+    <style name="setting_img">
+        <item name="android:layout_width">?attr/image22</item>
+        <item name="android:layout_height">?attr/image22</item>
+    </style>
+
+    <style name="setting_img_into">
+        <item name="android:layout_width">?attr/image7</item>
+        <item name="android:layout_height">?attr/image11</item>
+        <item name="android:layout_marginLeft">10.0dip</item>
+        <item name="android:layout_marginRight">10.0dip</item>
+    </style>
+
+    <style name="pickTheme">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:textColor">#1298FF</item>
+        <item name="android:layout_marginLeft">10dip</item>
+        <item name="android:layout_marginRight">10dip</item>
+    </style>
+
+    <style name="gray_text">
+        <item name="android:textColor">#9C9C9C</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="style_norm">
+        <item name="textSize24">24sp</item>
+        <item name="textSize20">20sp</item>
+        <item name="textSize18">18sp</item>
+        <item name="textSize17">17sp</item>
+        <item name="textSize16">16sp</item>
+        <item name="textSize15">15sp</item>
+        <item name="textSize14">14sp</item>
+        <item name="textSize13">13sp</item>
+        <item name="textSize12">12sp</item>
+        <item name="textSize10">10sp</item>
+        <item name="image7">7dp</item>
+        <item name="image8">8dp</item>
+        <item name="image10">10dp</item>
+        <item name="image11">11dp</item>
+        <item name="image13">13dp</item>
+        <item name="image16">16dp</item>
+        <item name="image22">22dp</item>
+        <item name="image30">30dp</item>
+        <item name="image32">32dp</item>
+        <item name="image34">34dp</item>
+        <item name="image40">40dp</item>
+        <item name="image42">42dp</item>
+        <item name="image44">44dp</item>
+        <item name="image45">45dp</item>
+        <item name="image48">48dp</item>
+        <item name="image50">50dp</item>
+        <item name="image60">60dp</item>
+        <item name="image62">62dp</item>
+        <item name="image70">70dp</item>
+        <item name="image71">71dp</item>
+        <item name="image73">73dp</item>
+        <item name="image80">80dp</item>
+        <item name="image100">100dp</item>
+        <item name="image154">154dp</item>
+    </style>
+
+    <style name="style_large">
+        <item name="textSize24">27.6sp</item>
+        <item name="textSize20">23sp</item>
+        <item name="textSize18">20.7sp</item>
+        <item name="textSize17">19.55sp</item>
+        <item name="textSize16">18.4sp</item>
+        <item name="textSize15">17.25sp</item>
+        <item name="textSize14">16.1sp</item>
+        <item name="textSize13">14.95sp</item>
+        <item name="textSize12">13.8sp</item>
+        <item name="textSize10">11.5sp</item>
+        <item name="image7">8dp</item>
+        <item name="image8">9.2dp</item>
+        <item name="image10">11.5dp</item>
+        <item name="image11">12.6dp</item>
+        <item name="image13">14.95dp</item>
+        <item name="image16">18.4dp</item>
+        <item name="image22">25.3dp</item>
+        <item name="image30">34.5dp</item>
+        <item name="image32">36.8dp</item>
+        <item name="image34">39.1dp</item>
+        <item name="image40">46dp</item>
+        <item name="image42">48.3dp</item>
+        <item name="image44">50.6dp</item>
+        <item name="image45">51.75dp</item>
+        <item name="image48">55.2dp</item>
+        <item name="image50">57.5dp</item>
+        <item name="image60">69dp</item>
+        <item name="image62">71.3dp</item>
+        <item name="image70">80.5dp</item>
+        <item name="image71">81.65dp</item>
+        <item name="image73">83.95dp</item>
+        <item name="image80">92dp</item>
+        <item name="image100">115dp</item>
+        <item name="image154">177.1dp</item>
+    </style>
+
+    <style name="style_big">
+        <item name="textSize24">30sp</item>
+        <item name="textSize20">25sp</item>
+        <item name="textSize18">22.5sp</item>
+        <item name="textSize17">21.25sp</item>
+        <item name="textSize16">20sp</item>
+        <item name="textSize15">18.75sp</item>
+        <item name="textSize14">17.5sp</item>
+        <item name="textSize13">16.25sp</item>
+        <item name="textSize12">15sp</item>
+        <item name="textSize10">12.5sp</item>
+        <item name="image7">8.75dp</item>
+        <item name="image8">10dp</item>
+        <item name="image10">12.5dp</item>
+        <item name="image11">13.7dp</item>
+        <item name="image13">16.25dp</item>
+        <item name="image16">20dp</item>
+        <item name="image22">27.5dp</item>
+        <item name="image30">37.5dp</item>
+        <item name="image32">40dp</item>
+        <item name="image34">42.5dp</item>
+        <item name="image40">50dp</item>
+        <item name="image42">52.5dp</item>
+        <item name="image44">55dp</item>
+        <item name="image45">56.25dp</item>
+        <item name="image48">60dp</item>
+        <item name="image50">62.5dp</item>
+        <item name="image60">75dp</item>
+        <item name="image62">77.5dp</item>
+        <item name="image70">87.5dp</item>
+        <item name="image71">88.75dp</item>
+        <item name="image73">91.25dp</item>
+        <item name="image80">100dp</item>
+        <item name="image100">125dp</item>
+        <item name="image154">192.5dp</item>
+    </style>
+
+
+    <style name="noAnimTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="noAnimThemep" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/colorPrimary</item>
+    </style>
+
+    <style name="noAnimThemep.noAnimThemeStatusBarColorGray">
+        <item name="android:statusBarColor" tools:targetApi="lollipop">#6F7075</item>
+    </style>
+
+    <style name="marquee">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+    </style>
+
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ActionSheetStyleiOS7">
+        <item name="actionSheetBackground">@android:color/transparent</item>
+        <item name="cancelButtonBackground">@drawable/slt_as_ios7_cancel_bt</item>
+        <item name="otherButtonTopBackground">@drawable/slt_as_ios7_other_bt_top</item>
+        <item name="otherButtonMiddleBackground">@drawable/slt_as_ios7_other_bt_middle</item>
+        <item name="otherButtonBottomBackground">@drawable/slt_as_ios7_other_bt_bottom</item>
+        <item name="otherButtonSingleBackground">@drawable/slt_as_ios7_other_bt_single</item>
+        <item name="cancelButtonTextColor">#ff0000</item>
+        <item name="otherButtonTextColor">#1E82FF</item>
+        <item name="actionSheetPadding">10dp</item>
+        <item name="otherButtonSpacing">0dp</item>
+        <item name="cancelButtonMarginTop">10dp</item>
+        <item name="actionSheetTextSize">12sp</item>
+    </style>
+
+    <style name="txt">
+        <item name="android:textSize">16sp</item>
+        <item name="android:autoLink">all</item>
+        <item name="android:textColor">#535353</item>
+    </style>
+
+    <style name="mylist">
+        <item name="android:cacheColorHint">#00000000</item>
+        <item name="android:dividerHeight">1px</item>
+        <item name="android:divider">@drawable/list_divider</item>
+        <item name="android:fastScrollEnabled">true</item>
+        <item name="android:fadingEdge">none</item>
+    </style>
+</resources>

@@ -1,0 +1,200 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/ly1"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="#f4f4f4"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dp" >
+
+                    <com.dk.mp.ydyx.view.CircleImageView
+                        android:id="@+id/wheader"
+                        android:layout_width="40dip"
+                        android:layout_height="40dip"
+                        android:layout_margin="2dip"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/man" />
+
+                    <TextView
+                        android:id="@+id/wname"
+                        android:maxLines="2"
+                        android:layout_width="230dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="9dp"
+                        android:text=""
+                         android:gravity="right"
+                        android:textColor="#313131"
+                        android:textSize="20dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.7dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="9dp"
+                        android:text="学号"
+                        android:textColor="#969696"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/wsno"
+                         android:layout_width="230dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="9dp"
+                         android:maxLines="2"
+                        android:text=""
+                         android:gravity="right"
+                        android:textColor="#313131"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.7dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="9dp"
+                        android:text="所在院系"
+                        android:textColor="#969696"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/wldp"
+                         android:layout_width="230dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="9dp"
+                         android:gravity="right"
+                        android:maxLines="2"
+                        android:text=""
+                        android:textColor="#313131"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.7dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="9dp"
+                        android:text="所在班级"
+                        android:textColor="#969696"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/wlcalss"
+                        android:layout_width="230dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="9dp"
+                        android:gravity="right"
+                        android:maxLines="2"
+                        android:text=""
+                        android:textColor="#89c997"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.7dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="9dp"
+                        android:text="辅导员"
+                        android:textColor="#969696"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/wlfd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="9dp"
+                        android:text=""
+                        android:textColor="#e500cf"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="10dip"
+        android:layout_below="@+id/ly1"
+        android:text=""
+        android:textColor="#e500cf"
+        android:textSize="18dp" />
+
+</RelativeLayout>

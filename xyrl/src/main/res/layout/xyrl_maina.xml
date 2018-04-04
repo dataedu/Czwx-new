@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/bar_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/core_title_back" />
+
+                <TextView
+                    android:id="@+id/currentMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="xxxx年14月"
+                    android:textColor="#212121"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="21.0dip" />
+           
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#c9c9c9" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="42.0dip" >
+
+            <TextView
+                style="@style/weekName"
+                android:text="周日" />
+
+            <TextView
+                style="@style/weekName"
+                android:text="周一" />
+
+            <TextView
+                style="@style/weekName"
+                android:text="周二" />
+
+            <TextView
+                style="@style/weekName"
+                android:text="周三" />
+
+            <TextView
+                style="@style/weekName"
+                android:text="周四" />
+
+            <TextView
+                style="@style/weekName"
+                android:text="周五" />
+
+            <TextView
+                style="@style/weekName"
+                android:text="周六" />
+        </LinearLayout>
+
+       <ViewFlipper
+        android:id="@+id/flipper"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

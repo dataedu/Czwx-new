@@ -1,0 +1,28 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.dk.mp.xyfg">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name="com.dk.mp.xyfg.XyfgActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="xyfg" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xyfg.SceneryListActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xyfg.SceneryDetailsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+</manifest>

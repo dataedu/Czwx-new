@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:fresco="http://schemas.android.com/apk/res-auto">
+    
+	<!-- com.facebook.drawee.view.SimpleDraweeView
+		android:id="@+id/scenerydetailgridimage"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		fresco:fadeDuration="300"
+		fresco:actualImageScaleType="fitCenter"
+		fresco:placeholderImage="@drawable/image_defualt"
+		fresco:placeholderImageScaleType="fitCenter"
+		fresco:failureImage="@drawable/image_defualt"
+	 	fresco:failureImageScaleType="fitCenter"
+		fresco:backgroundImage="@color/black"
+	/> -->
+	
+	 <com.dk.mp.xyfg.view.ZoomableDraweeView
+	    android:id="@+id/scenerydetailgridimage"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		fresco:fadeDuration="300"
+		fresco:actualImageScaleType="fitCenter"
+		fresco:placeholderImage="@mipmap/image_defualt"
+		fresco:placeholderImageScaleType="fitCenter"
+		fresco:failureImage="@mipmap/image_defualt"
+	 	fresco:failureImageScaleType="fitCenter"
+		fresco:backgroundImage="@mipmap/image_defualt">
+	</com.dk.mp.xyfg.view.ZoomableDraweeView>
+	
+	<!--<com.dk.mp.csyxy.ui.xyfg.view.ZoomImageView-->
+	    <!--android:id="@+id/scenerydetailgridimage"-->
+		<!--android:layout_width="fill_parent"-->
+		<!--android:layout_height="fill_parent"-->
+		<!--android:src="@mipmap/ic_launcher"-->
+		<!--android:scaleType="matrix">-->
+	<!--</com.dk.mp.csyxy.ui.xyfg.view.ZoomImageView>-->
+	
+</LinearLayout>

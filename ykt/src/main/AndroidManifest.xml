@@ -1,0 +1,26 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.dk.mp.ykt">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name="com.dk.mp.ykt.CardMainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/ykt"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="ykt" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.ykt.CardMonthActivity"
+            android:label="一卡通月份数据"
+            android:screenOrientation="portrait" >
+        </activity>
+
+    </application>
+
+</manifest>

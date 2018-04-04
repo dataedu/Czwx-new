@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/view_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/core_title_back" />
+    <!--  -->
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/layout_top"
+        android:layout_above="@+id/lin_footer"
+        android:scrollbars="none" >
+
+        <com.dk.mp.core.view.edittext.DetailView
+            android:id="@+id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/view_bg" >
+        </com.dk.mp.core.view.edittext.DetailView>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lin_footer"
+        android:layout_width="match_parent"
+        android:layout_height="42dip"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#CDCCCC" />
+
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/agree"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/more_bg"
+                android:gravity="center"
+                android:text="同意"
+                android:textColor="#43A4F4"/>
+            <ImageView
+                android:layout_width="1dip"
+                android:paddingTop="10dip"
+                android:paddingBottom="10dip"
+                android:layout_height="30dip"
+                android:background="#C9C9C9"/>
+            <TextView
+                  android:id="@+id/noagree"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/more_bg"
+                android:gravity="center"
+                android:text="不同意"
+                android:textColor="#43A4F4"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

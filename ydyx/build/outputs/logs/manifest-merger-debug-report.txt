@@ -1,0 +1,103 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:1-39:12
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:1-39:12
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:1-39:12
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:1-39:12
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:1-39:12
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:1-39:12
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:1-39:12
+	package
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:3:5-29
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:1-39:12
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:1-39:12
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:1:11-69
+application
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:5:5-37:19
+	android:supportsRtl
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:6:9-35
+	android:label
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:5:45-77
+	android:allowBackup
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:5:18-44
+activity#com.dk.mp.ydyx.activity.WelDoActivity
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:7:9-14:20
+	android:screenOrientation
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:9:13-49
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:8:13-65
+intent-filter#android.intent.category.DEFAULT+welstu
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:10:13-13:29
+action#welstu
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:11:17-49
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:11:25-46
+category#android.intent.category.DEFAULT
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:12:17-76
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:12:27-73
+activity#com.dk.mp.ydyx.activity.MoreActivity
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:15:9-17:52
+	android:screenOrientation
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:17:13-49
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:16:13-64
+activity#com.dk.mp.ydyx.activity.RemarkActivity
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:18:9-20:52
+	android:screenOrientation
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:20:13-49
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:19:13-66
+activity#com.dk.mp.ydyx.activity.StudentActivity
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:21:9-23:52
+	android:screenOrientation
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:23:13-49
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:22:13-67
+activity#com.dk.mp.ydyx.activity.StudentInfoActivity
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:24:9-26:52
+	android:screenOrientation
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:26:13-49
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:25:13-71
+activity#com.dk.mp.ydyx.activity.WelStudentActivity
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:27:9-29:52
+	android:screenOrientation
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:29:13-49
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:28:13-70
+activity#com.dk.mp.ydyx.activity.WelMoreActivity
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:30:9-32:52
+	android:screenOrientation
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:32:13-49
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:31:13-67
+activity#com.dk.mp.ydyx.activity.DatePickActivity
+ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:34:9-36:52
+	android:screenOrientation
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:36:13-49
+	android:name
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml:35:13-68
+uses-sdk
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+		ADDED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml
+		INJECTED from D:\MyCode\Czwx\ydyx\src\main\AndroidManifest.xml

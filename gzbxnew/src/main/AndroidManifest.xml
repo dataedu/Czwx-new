@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dk.mp.apps.gzbxnew"
+    android:sharedUserId="com.dk.mp">
+
+
+    <application
+        android:allowBackup="true"
+        android:label="故障报修"
+        android:noHistory="true">
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairMainActivity"
+            android:label="故障报修"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairApplyActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="gzbx" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairDetailActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairAddActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairCommentOnTabActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairCommentOnActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairCommentOnYpDetailActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairCommentOnWpDetailActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairAuditingTabActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairApplyDetailActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairAuditingDetailActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.dk.mp.apps.gzbxnew.FaultRepairAuditingSelectActivity"
+            android:screenOrientation="portrait"></activity>
+
+    </application>
+</manifest>

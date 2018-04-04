@@ -1,0 +1,224 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="#EDECF0">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/title_bg_repair"
+        android:scaleType="fitXY"/>
+    
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="48dip"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+        <Button
+            android:id="@+id/back"
+            style="@style/but_back"
+            android:layout_width="70dip"
+            android:layout_height="48dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="220dp"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+        
+        <LinearLayout
+        android:id="@+id/zwsj"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="43dp"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/zwsj_icon"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/nodata" />
+
+        <TextView
+            android:id="@+id/zwsj_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="@string/nodata"
+            android:textColor="#c9c9c9"
+            android:textSize="12sp" />
+    </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/evaluate"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_corner"
+            android:layout_marginBottom="25dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="43dp"
+                android:src="@drawable/appr_faultrepair"/>
+            	
+            <View android:layout_width="0.8dp"
+                android:layout_height="43dp"
+                android:background="#d1e1f0"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#5c7cd4"
+                android:textSize="21sp"
+                android:text="报修申请"
+                android:layout_weight="1"/>
+             <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/arror_faultrepair"/>
+        </LinearLayout>
+        
+         <LinearLayout
+            android:id="@+id/appr"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_corner"
+            android:layout_marginBottom="25dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:visibility="gone">
+            
+              <ImageView
+                android:layout_width="39dp"
+                android:layout_height="43dp"
+                android:src="@drawable/auditing_faultrepair"/>
+            	
+            <View android:layout_width="0.8dp"
+                android:layout_height="43dp"
+                android:background="#d1e1f0"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#5c7cd4"
+                android:textSize="21sp"
+                android:text="报修审核"
+                android:layout_weight="1"/>
+             <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/arror_faultrepair"/>
+        </LinearLayout>
+        
+          <LinearLayout
+             android:id="@+id/auditing"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_corner"
+            android:layout_marginBottom="25dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:visibility="gone">
+            
+               <ImageView
+                android:layout_width="39dp"
+                android:layout_height="43dp"
+                android:src="@drawable/evaluate_faultrepair"/>
+            	
+            <View android:layout_width="0.8dp"
+                android:layout_height="43dp"
+                android:background="#d1e1f0"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#5c7cd4"
+                android:textSize="21sp"
+                android:text="报修评价"
+                android:layout_weight="1"/>
+             <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/arror_faultrepair"/>
+        </LinearLayout>
+        
+          <LinearLayout
+               android:id="@+id/evaluate2"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:background="@drawable/shape_corner"
+	            android:layout_marginBottom="25dp"
+	            android:orientation="vertical"
+	            android:gravity="center"
+	            android:paddingLeft="25dp"
+	            android:paddingRight="25dp"
+	            android:visibility="gone">
+             	
+              	<ImageView
+	                android:layout_width="39dp"
+	                android:layout_height="43dp"
+	                android:src="@drawable/appr_faultrepair"/>
+              	
+              	 <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="#5c7cd4"
+	                android:textSize="21sp"
+	                android:text="报修申请"
+	                android:layout_marginTop="20dp"/>
+           </LinearLayout>
+           
+          <LinearLayout
+            android:id="@+id/auditing2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_corner"
+            android:layout_marginBottom="25dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:visibility="gone">
+            
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="43dp"
+                android:src="@drawable/evaluate_faultrepair"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#5c7cd4"
+                android:textSize="21sp"
+                android:text="报修评价"
+                 android:layout_marginTop="20dp"/>
+        </LinearLayout>
+	</LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,22 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="25dip"
+    android:background="@drawable/shape_corner_button" 
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="15dip"
+    android:paddingRight="15dip">
+    
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@drawable/gzbx_l"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="窗户"
+        android:layout_marginLeft="3dp"
+        android:textColor="@color/white"
+        android:textSize="12sp"/>
+</LinearLayout>

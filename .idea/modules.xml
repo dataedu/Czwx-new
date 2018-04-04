@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Czwx.iml" filepath="$PROJECT_DIR$/Czwx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjcx/cjcx.iml" filepath="$PROJECT_DIR$/cjcx/cjcx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gzbxnew/gzbxnew.iml" filepath="$PROJECT_DIR$/gzbxnew/gzbxnew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gzcx/gzcx.iml" filepath="$PROJECT_DIR$/gzcx/gzcx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hy/hy.iml" filepath="$PROJECT_DIR$/hy/hy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jfcx/jfcx.iml" filepath="$PROJECT_DIR$/jfcx/jfcx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kcb/kcb.iml" filepath="$PROJECT_DIR$/kcb/kcb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/main/main.iml" filepath="$PROJECT_DIR$/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pjpy/pjpy.iml" filepath="$PROJECT_DIR$/pjpy/pjpy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tsg/tsg.iml" filepath="$PROJECT_DIR$/tsg/tsg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/txl/txl.iml" filepath="$PROJECT_DIR$/txl/txl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tzgg/tzgg.iml" filepath="$PROJECT_DIR$/tzgg/tzgg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wspj/wspj.iml" filepath="$PROJECT_DIR$/wspj/wspj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xg/xg.iml" filepath="$PROJECT_DIR$/xg/xg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxgk/xxgk.iml" filepath="$PROJECT_DIR$/xxgk/xxgk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xxxw/xxxw.iml" filepath="$PROJECT_DIR$/xxxw/xxxw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xyfg/xyfg.iml" filepath="$PROJECT_DIR$/xyfg/xyfg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xyrl/xyrl.iml" filepath="$PROJECT_DIR$/xyrl/xyrl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ydlx/ydlx.iml" filepath="$PROJECT_DIR$/ydlx/ydlx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ydqj/ydqj.iml" filepath="$PROJECT_DIR$/ydqj/ydqj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ydyx/ydyx.iml" filepath="$PROJECT_DIR$/ydyx/ydyx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ykt/ykt.iml" filepath="$PROJECT_DIR$/ykt/ykt.iml" />
+    </modules>
+  </component>
+</project>

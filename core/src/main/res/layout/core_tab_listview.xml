@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/zwsj"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="43dp"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/zwsj_icon"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@mipmap/nodata_n" />
+
+        <TextView
+            android:id="@+id/zwsj_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="@string/nodata"
+            android:textColor="#c9c9c9"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+	<ListView 
+	    style="@style/mylist" 
+	    android:id="@+id/listView"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:listSelector="#00000000"    />
+</FrameLayout>

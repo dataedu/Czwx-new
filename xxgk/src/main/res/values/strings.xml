@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <!-- 学院概况=============== -->
+    <string name="schinfo">学院概况</string>
+    <string name="schinfo_desc">学校简介</string>
+    <string name="schinfo_history">校史沿革</string>
+    <string name="schinfo_depart">院系介绍</string>
+    <string name="schinfo_noDesc">暂无简介</string>
+
+</resources>

@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:padding="5dip"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dip"
+        android:drawableLeft="@drawable/tip1"
+        android:gravity="center"
+        android:text="需办理"
+        android:textColor="#313131" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:drawableLeft="@drawable/tip2"
+        android:gravity="center"
+        android:text="已通过"
+        android:layout_marginRight="20dip"
+        android:textColor="#313131" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:drawableLeft="@drawable/tip3"
+        android:gravity="center"
+        android:text="未通过"
+        android:textColor="#313131" />
+
+</LinearLayout>

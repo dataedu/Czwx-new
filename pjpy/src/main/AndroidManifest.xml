@@ -1,0 +1,29 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.dk.mp.pjpy">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+        <!-- 评奖评优 -->
+        <activity
+            android:name="com.dk.mp.pjpy.ui.PjpyMainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="pjpy"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 资助 -->
+        <activity
+            android:name="com.dk.mp.pjpy.ui.ZzMainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="zizhu"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

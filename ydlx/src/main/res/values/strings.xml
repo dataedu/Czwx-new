@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">离校手续</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_leave">离校办理查询</string>
+    <string name="app_leave_know">离校须知</string>
+  <string name="rootUrl">http://192.168.3.160:8080/mp-czdx/</string>
+  
+  <string name="weixin_AppID">wxf5f485c276034675</string>
+  <string name="weixin_AppSecret">01c871257fd4f0f30f675e1ced67492b</string>
+  <string name="qq_APPID">1104623746</string>
+  <string name="qq_APPKEY">Aj7v9f15XRV7LxJ6</string>
+</resources>

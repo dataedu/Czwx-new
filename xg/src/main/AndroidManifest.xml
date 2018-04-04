@@ -1,0 +1,362 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.dk.mp.xg">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep.noAnimThemeStatusBarColorGray">
+            <intent-filter>
+                <action android:name="sswzdf" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".wsjc.ui.WsjcDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoTitle"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcDfyyPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcRecordMainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcRecordDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcManualentryActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcRecordListActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.SearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep.noAnimThemeStatusBarColorGray"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zsskq.ZsPersonInformationQueryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+            <intent-filter>
+                <action android:name="zsrycx" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zsskq.ZsPersonGradeQueryActivity"
+            android:screenOrientation="portrait"/>
+
+        <!--<activity-->
+            <!--android:name="com.dk.mp.xg.wsjc.ui.WsjcChooseSslActivity"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:theme="@style/noAnimThemep">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="sswsdftj" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <!--<activity-->
+            <!--android:name="com.dk.mp.xg.wsjc.ui.WsjcTjMainActivity"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:theme="@style/noAnimThemep">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="sswsdftj" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcChooseSslActivity"
+            android:screenOrientation="portrait"/>
+
+        <!--<activity-->
+            <!--android:name="com.dk.mp.xg.wsjc.ui.WsjcTjTabActivity"-->
+            <!--android:screenOrientation="portrait"/>-->
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcTjTabActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+            <intent-filter>
+                <action android:name="sswsdftj" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcTjWeekPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcTjMonthPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.WsjcTjSemesterPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep.noAnimThemeStatusBarColorGray">
+            <intent-filter>
+                <action android:name="sswzdj" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzRecordListActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzSdluActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzRecordDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep.noAnimThemeStatusBarColorGray"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzDjMainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzSelectPersonActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzSelectPersonsActivity2"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzWjrqPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.Sswz.SswzWjlbPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZsstjMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+            <intent-filter>
+                <action android:name="zxzssgltj" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZsstjTabActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZsstjPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+            <intent-filter>
+                <action android:name="zxzssgl" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglMainDialogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglAddTuiSuActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+            <!--android:theme="@style/noAnimThemep"-->
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZsstjAddTingSuActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+            <!--android:theme="@style/noAnimThemep"-->
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zsskq.ZsskqMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+            <intent-filter>
+                <action android:name="zsskq" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zsskq.ZsskqTjTabActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zsskq.ZsskqBjPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglAddTiaoSuActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+            <!--android:theme="@style/noAnimThemep"-->
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglSelectPersonsActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglSelectTzyyActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssdjgl.ZssdjglTabActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+            <intent-filter>
+                <action android:name="zsdjgl" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssdjgl.ZssdjglAddLiusuActivity"
+            android:screenOrientation="portrait"/>
+            <!--android:theme="@style/noAnimThemep"-->
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssdjgl.SelectPersonsActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssdjgl.ZssdjglDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssdjgl.ZssdjglEditActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssdjgl.ZssdjglSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep.noAnimThemeStatusBarColorGray"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglSubmitActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoTitleTranslucentTheme">
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglTiaoSuSubmitActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglPutupActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.zssgl.ZssglSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep.noAnimThemeStatusBarColorGray"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.ImagePreviewActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.scorequery.ScoreQueryMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+            <intent-filter>
+                <action android:name="xscjcx" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.scorequery.SchoolYearPickActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+
+        <!--<activity-->
+            <!--android:name="com.dk.mp.xg.wsjc.ui.mispersoninfomation.SelectDormitoryBuildingActivity"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:theme="@style/noAnimThemep">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="wdrycx" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.mispersoninfomation.SelectDormitoryBuildingNewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+            <intent-filter>
+                <action android:name="wdrycx" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.mispersoninfomation.MissingPersonInfomationActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.dk.mp.xg.wsjc.ui.mispersoninfomation.MissingPersonActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+    </application>
+
+</manifest>

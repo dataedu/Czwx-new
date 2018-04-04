@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    	<color name="submit">#2196F3</color>
+    	<color name="nosubmit">#c9c9c9</color>
+
+	<color name="dialog_txt">#515151</color>
+</resources>

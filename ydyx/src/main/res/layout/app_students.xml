@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/core_title_back" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="9dip" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/laoxiang"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <ImageView
+                        android:layout_width="60dip"
+                        android:layout_height="60dip"
+                        android:src="@drawable/fellow" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:layout_weight="0.88"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="老乡圈"
+                            android:textColor="#313131"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lcount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dip"
+                            android:text="成员有200名同学"
+                            android:textColor="#969696"
+                            android:textSize="14dip" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:gravity="right"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/ltime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9分钟前"
+                            android:textColor="#969696"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lweidu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dip"
+                            android:background="@drawable/xiaoxi"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="12dip" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <LinearLayout
+                    android:id="@+id/laoxiang1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <ImageView
+                        android:layout_width="60dip"
+                        android:layout_height="60dip"
+                        android:src="@drawable/classf" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:layout_weight="0.88"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="班级圈"
+                            android:textColor="#313131"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lcount1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dip"
+                            android:text="成员有200名同学"
+                            android:textColor="#969696"
+                            android:textSize="14dip" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:gravity="right"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/ltime1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9分钟前"
+                            android:textColor="#969696"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lweidu1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dip"
+                            android:background="@drawable/xiaoxi"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="12dip" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <LinearLayout
+                    android:id="@+id/laoxiang2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <ImageView
+                        android:layout_width="60dip"
+                        android:layout_height="60dip"
+                        android:src="@drawable/dorm" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:layout_weight="0.88"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="宿舍圈"
+                            android:textColor="#313131"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lcount2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dip"
+                            android:text="成员有200名同学"
+                            android:textColor="#969696"
+                            android:textSize="14dip" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:gravity="right"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/ltime2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9分钟前"
+                            android:textColor="#969696"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lweidu2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dip"
+                            android:background="@drawable/xiaoxi"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="12dip" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dip"
+                android:background="@drawable/frame"
+                android:orientation="vertical" >
+                <LinearLayout 
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dip"
+                    android:orientation="horizontal"
+                    android:background="#FCFBFB"
+                    android:gravity="center_vertical"
+                    >
+                    <ImageView 
+                        android:layout_marginLeft="9dip"
+                        android:layout_width="9dip"
+                        android:layout_height="12dip"
+                        android:src="@drawable/hots"
+                        />
+                <TextView 
+                    android:layout_marginLeft="9dip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="圈推荐"
+                    android:textColor="#969696"
+                    android:textSize="14dip"
+                    />
+                </LinearLayout>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.5dip"
+                    android:background="#c9c9c9" />
+                <LinearLayout
+                    android:id="@+id/laoxiang3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <ImageView
+                        android:layout_width="60dip"
+                        android:layout_height="60dip"
+                        android:src="@drawable/sport" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:layout_weight="0.88"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="体育运动汇"
+                            android:textColor="#313131"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lcount3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dip"
+                            android:text="篮球、足球、排球各类爱好者聚集地"
+                            android:textColor="#969696"
+                            android:textSize="14dip" />
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="44dip"
+                        android:layout_height="25dip"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/jiaru"
+                        android:gravity="center"
+                        android:text="加入"
+                        android:textColor="@color/white"
+                        android:textSize="14dip" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:id="@+id/ltime3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9分钟前"
+                            android:textColor="#969696"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lweidu3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dip"
+                            android:background="@drawable/xiaoxi"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="12dip" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <LinearLayout
+                    android:id="@+id/laoxiang4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <ImageView
+                        android:layout_width="60dip"
+                        android:layout_height="60dip"
+                        android:src="@drawable/music" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:layout_weight="0.88"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="流行音乐坊"
+                            android:textColor="#313131"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lcount4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dip"
+                            android:text="流行的旋律，就是爱音乐"
+                            android:textColor="#969696"
+                            android:textSize="14dip" />
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="44dip"
+                        android:layout_height="25dip"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/jiaru"
+                        android:gravity="center"
+                        android:text="加入"
+                        android:textColor="@color/white"
+                        android:textSize="14dip" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:id="@+id/ltime4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9分钟前"
+                            android:textColor="#969696"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lweidu4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dip"
+                            android:background="@drawable/xiaoxi"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="12dip" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <LinearLayout
+                    android:id="@+id/laoxiang445"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <ImageView
+                        android:layout_width="60dip"
+                        android:layout_height="60dip"
+                        android:src="@drawable/erp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:layout_weight="0.88"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="电子竞技场"
+                            android:textColor="#313131"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lcount45"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dip"
+                            android:text="屌丝的世界，我就是MVP"
+                            android:textColor="#969696"
+                            android:textSize="14dip" />
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="44dip"
+                        android:layout_height="25dip"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/jiaru"
+                        android:gravity="center"
+                        android:text="加入"
+                        android:textColor="@color/white"
+                        android:textSize="14dip" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <LinearLayout
+                    android:id="@+id/laoxiang45"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <ImageView
+                        android:layout_width="60dip"
+                        android:layout_height="60dip"
+                        android:src="@drawable/travel" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dip"
+                        android:layout_weight="0.88"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="旅行在途中"
+                            android:textColor="#313131"
+                            android:textSize="16dip" />
+
+                        <TextView
+                            android:id="@+id/lcount445"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dip"
+                            android:text="路就在脚下，旅途中发现生活"
+                            android:textColor="#969696"
+                            android:textSize="14dip" />
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="44dip"
+                        android:layout_height="25dip"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/jiaru"
+                        android:gravity="center"
+                        android:text="加入"
+                        android:textColor="@color/white"
+                        android:textSize="14dip" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

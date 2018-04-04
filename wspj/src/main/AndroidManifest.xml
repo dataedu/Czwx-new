@@ -1,0 +1,27 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.dk.mp.wspj">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name="com.dk.mp.wspj.EvaluateActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="pingjiao" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dk.mp.wspj.EvaluateTabActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.dk.mp.wspj.EvaluateDetails"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+    </application>
+
+</manifest>

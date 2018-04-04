@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    
+    <color name="leave_do_background">#99d9a7</color>
+    <color name="leave_cando_background">#f9c474</color>
+    <color name="leave_not_background">#f27fa7</color>
+    <color name="leave_more">#ececec</color>
+    <color name="leave_mores">#d2d2d2</color>
+    <drawable name="touming">#00000000</drawable>
+    <color name="fenxiang_anxia">#f39800</color>
+</resources>

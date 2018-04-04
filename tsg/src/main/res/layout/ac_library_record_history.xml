@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.dk.mp.core.widget.ErrorLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+
+    </com.dk.mp.core.widget.ErrorLayout>
+
+    <!--<com.dk.mp.core.view.listview.XListView-->
+        <!--android:id="@+id/listView"-->
+        <!--style="@style/mylist"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:listSelector="#00000000"/>-->
+
+    <com.dk.mp.core.view.MyListView
+        android:id="@+id/newslist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+    </com.dk.mp.core.view.MyListView>
+
+</LinearLayout>

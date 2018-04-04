@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="D:\Tools\Android_IDE\Android Studio\gradle\gradle-4.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/cjcx" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/gzbxnew" />
+            <option value="$PROJECT_DIR$/gzcx" />
+            <option value="$PROJECT_DIR$/hy" />
+            <option value="$PROJECT_DIR$/jfcx" />
+            <option value="$PROJECT_DIR$/kcb" />
+            <option value="$PROJECT_DIR$/main" />
+            <option value="$PROJECT_DIR$/pjpy" />
+            <option value="$PROJECT_DIR$/tsg" />
+            <option value="$PROJECT_DIR$/txl" />
+            <option value="$PROJECT_DIR$/tzgg" />
+            <option value="$PROJECT_DIR$/wspj" />
+            <option value="$PROJECT_DIR$/xg" />
+            <option value="$PROJECT_DIR$/xxgk" />
+            <option value="$PROJECT_DIR$/xxxw" />
+            <option value="$PROJECT_DIR$/xyfg" />
+            <option value="$PROJECT_DIR$/xyrl" />
+            <option value="$PROJECT_DIR$/ydlx" />
+            <option value="$PROJECT_DIR$/ydqj" />
+            <option value="$PROJECT_DIR$/ydyx" />
+            <option value="$PROJECT_DIR$/ykt" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

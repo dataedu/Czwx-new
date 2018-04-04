@@ -1,0 +1,77 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.dk.mp.czwx.main">
+
+    <!-- Required  一些系统要求的权限，如访问网络等-->
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <receiver android:name="com.dk.mp.main.home.receiver.NetworkConnectChangedReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+
+        <activity android:name="com.dk.mp.main.home.ui.HomeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.dk.mp.main.ui.SettingActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.dk.mp.main.login.LoginActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.dk.mp.main.ui.AboutActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.dk.mp.main.ui.UserInfoActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.dk.mp.main.home.ui.BrithdayActivity"
+            android:theme="@style/Theme.Transparent"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.dk.mp.main.message.ui.BrithdayMessageActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.dk.mp.main.message.ui.MessageActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.dk.mp.main.home.ui.AddAppActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/noAnimThemep">
+            <intent-filter>
+                <action android:name="addapps" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.dk.mp.ydlx">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name="com.dk.mp.ydlx.activity.LeaveMoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dk.mp.ydlx.activity.RemarkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dk.mp.ydlx.activity.LeaveActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="lixiao" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

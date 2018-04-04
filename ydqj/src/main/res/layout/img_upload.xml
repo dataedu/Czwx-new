@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="60dip"
+    android:layout_height="60dip"
+    android:layout_gravity="center"
+    android:background="@color/view_bg"
+    android:orientation="vertical" 
+    android:id="@+id/fragment1">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+			android:layout_gravity="center_vertical"
+			android:gravity="center"
+			android:scaleType="fitXY"/>
+        
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="18dip"
+            android:layout_height="18dip"
+            android:layout_gravity="right"
+            android:src="@drawable/icon_del"
+            android:textSize="16sp"
+            android:scaleType="fitXY"
+            android:background="@null" />
+
+</FrameLayout>

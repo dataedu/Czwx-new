@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/myborder" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:text="意见建议（200字以内）"
+        android:textColor="#212121"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/suggention"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/editbackground" 
+        android:ems="10"
+        android:textSize="12sp"
+        android:textColor="#212121"
+        android:hint="请输入你的建议" 
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:maxLength="200"
+        android:maxLines="3"
+        android:lineSpacingExtra="4dp">
+    </EditText>
+    
+</LinearLayout>

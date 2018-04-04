@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Core</string>
+
+    <!-- <string name="rootUrl">http://192.168.3.163:8082/mp-lgj/</string>-->
+    <!--<string name="rootUrl">http://192.168.1.155:9095/mp-lgj4_1/</string>-->
+    <!--<string name="uploadUrl">http://192.168.3.14:8081/</string>-->
+
+    <!--<string name="rootUrl">http://ydoa.czlgj.com:9064/ydxy/</string>-->
+    <string name="rootUrl">http://yd.cjjs.cn/yd/</string>
+
+    <string name="uploadUrl">http://xg.czlgj.com/</string>
+
+    <string name="reload">点击重新加载</string>
+    <string name="transition__img">转场动画</string>
+    <string name="net_no">暂无网络</string>
+    <string name="net_no2">网络异常哦</string>
+    <string name="nodata">还没有数据哦</string>
+    <string name="nomsg">还没有消息哦</string>
+    <string name="data_fail">服务异常哦</string>
+    <string name="login_fail">登录失败</string>
+    <string name="searchnodata">没有搜索到哦</string>
+    <string name="noapply">暂无申请哦</string>
+
+    <string name="loading">努力加载中,请稍候</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载&#8230;</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+
+    <string name="defulicon">[
+       <!--
+        {\"id\":\"2\",\"name\":\"通讯录\",\"url\":\"\",\"idCat\":\"2\",\"icon\":\"app_txl\",\"packageName\":\"\",\"action\":\"txl\",\"nameCat\":\"生活\"},
+        {\"id\":\"3\",\"name\":\"工资查询\",\"url\":\"\",\"idCat\":\"3\",\"icon\":\"app_gzcx\",\"packageName\":\"\",\"action\":\"gzcx\",\"nameCat\":\"生活\"},
+        {\"id\":\"4\",\"name\":\"图书馆\",\"url\":\"\",\"idCat\":\"4\",\"icon\":\"app_tsg\",\"packageName\":\"\",\"action\":\"tsg\",\"nameCat\":\"生活\"},
+        {\"id\":\"5\",\"name\":\"一卡通\",\"url\":\"\",\"idCat\":\"5\",\"icon\":\"app_ykt\",\"packageName\":\"\",\"action\":\"ykt\",\"nameCat\":\"生活\"},-->
+        {\"id\":\"1\",\"name\":\"学校新闻\",\"url\":\"\",\"idCat\":\"1\",\"icon\":\"app_xxxw\",\"packageName\":\"\",\"action\":\"xxxw\",\"nameCat\":\"生活\"},
+        {\"id\":\"6\",\"name\":\"通知公告\",\"url\":\"\",\"idCat\":\"6\",\"icon\":\"app_tzgg\",\"packageName\":\"\",\"action\":\"tzgg\",\"nameCat\":\"生活\"},
+         {\"id\":\"2\",\"name\":\"校园风光\",\"url\":\"\",\"idCat\":\"2\",\"icon\":\"app_xyfg\",\"packageName\":\"\",\"action\":\"xyfg\",\"nameCat\":\"生活\"},
+         {\"id\":\"15\",\"name\":\"学校概况\",\"url\":\"\",\"idCat\":\"15\",\"icon\":\"app_xxgk\",\"packageName\":\"\",\"action\":\"xxgk\",\"nameCat\":\"生活\"}
+
+        <!--{\"id\":\"7\",\"name\":\"学生缴费\",\"url\":\"\",\"idCat\":\"7\",\"icon\":\"app_xsjf\",\"packageName\":\"\",\"action\":\"xsjf\",\"nameCat\":\"生活\"},
+        {\"id\":\"8\",\"name\":\"床位异动\",\"url\":\"\",\"idCat\":\"8\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"cwyd\",\"nameCat\":\"生活\"},
+        {\"id\":\"9\",\"name\":\"困难生认定\",\"url\":\"\",\"idCat\":\"9\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"knsrd\",\"nameCat\":\"生活\"},
+        {\"id\":\"10\",\"name\":\"岗位申请\",\"url\":\"\",\"idCat\":\"10\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"gwsq\",\"nameCat\":\"生活\"},
+        {\"id\":\"11\",\"name\":\"上课考勤信息查询\",\"url\":\"\",\"idCat\":\"11\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"skkqxxcx\",\"nameCat\":\"生活\"},
+        {\"id\":\"12\",\"name\":\"成长导航\",\"url\":\"\",\"idCat\":\"12\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"czdh\",\"nameCat\":\"生活\"},
+        {\"id\":\"13\",\"name\":\"评奖评优\",\"url\":\"\",\"idCat\":\"13\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"pjpy\",\"nameCat\":\"生活\"},
+        {\"id\":\"14\",\"name\":\"助学金\",\"url\":\"\",\"idCat\":\"14\",\"icon\":\"app_cwyd\",\"packageName\":\"\",\"action\":\"zxj\",\"nameCat\":\"生活\"}-->
+        ]</string>
+
+</resources>

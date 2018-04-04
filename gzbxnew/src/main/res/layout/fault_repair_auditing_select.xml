@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededf1"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/core_title_back" />
+   <LinearLayout
+        android:id="@+id/zwsj"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="43dp"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/zwsj_icon"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/nodata" />
+
+        <TextView
+            android:id="@+id/zwsj_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="@string/nodata"
+            android:textColor="#c9c9c9"
+            android:textSize="12sp">
+         </TextView>
+    </LinearLayout>
+    
+    
+     <ScrollView
+         	android:id="@+id/sv_parent"
+	         android:layout_width="match_parent"
+	    	 android:layout_height="match_parent">
+		    <LinearLayout
+		        android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical"
+			    android:paddingBottom="15dp"
+			    android:focusable="true"
+			    android:focusableInTouchMode="true" >
+			    <LinearLayout
+			        android:id="@+id/wxlx_lin"
+			        android:layout_width="match_parent"
+			        android:layout_height="fill_parent"
+			        android:background="#ffffff"
+			        android:layout_marginTop="15dp"
+			        android:layout_marginLeft="15dp"
+			        android:layout_marginRight="15dp"
+			        android:orientation="vertical"
+			        android:paddingLeft="10dp"
+			        android:paddingRight="10dp"
+			        android:visibility="gone">
+			          <LinearLayout
+					        android:layout_width="match_parent"
+					        android:layout_height="40dp"
+					        android:gravity="center_vertical">
+		            	 <TextView
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:text="维修类别（必选）"
+			                android:textColor="#9C9C9C"
+			                android:textSize="15sp"/>
+		             </LinearLayout>
+			            
+		             <com.dk.mp.core.view.listview.XListView
+				        android:id="@+id/listView"
+				        android:layout_width="fill_parent"
+				        android:layout_height="fill_parent"
+				        android:divider="#e5e5e5"
+				        android:dividerHeight="0.8dp"
+				        android:scrollbars="none"
+				        />
+		             
+			    </LinearLayout>
+			    
+			    <LinearLayout
+			        android:id="@+id/wxry_lin"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        android:background="#ffffff"
+			        android:layout_marginLeft="15dp"
+			        android:layout_marginRight="15dp"
+			         android:layout_marginTop="15dp"
+			        android:visibility="gone">
+			             <LinearLayout
+						        android:layout_width="match_parent"
+						        android:layout_height="40dp"
+						        android:gravity="center_vertical"
+						        android:paddingLeft="10dp"
+						        android:paddingRight="10dp">
+			            	 <TextView
+				                android:layout_width="wrap_content"
+				                android:layout_height="wrap_content"
+				                android:text="维修人员（必选）"
+				                android:textColor="#9C9C9C"
+				                android:textSize="15sp"/>
+			            </LinearLayout>
+			            
+			             <View
+				             android:layout_width="match_parent"
+				             android:layout_height="0.8dp"
+				             android:background="#e5e5e5"/>
+			             
+			             <ScrollView
+			                 android:id="@+id/sv_child"
+			                 android:layout_width="match_parent"
+			                 android:layout_height="214dp"
+			                 android:scrollbars="none">
+				             <com.dk.mp.apps.gzbxnew.widget.TagLayout
+				                 android:id="@+id/tags"
+				                 android:layout_width="match_parent"
+				                 android:layout_height="wrap_content"
+				                 android:background="#ffffff"
+				                 android:paddingLeft="10dp"
+				                 android:paddingBottom="15dp">
+				                 </com.dk.mp.apps.gzbxnew.widget.TagLayout>
+			                 </ScrollView>
+			    </LinearLayout>
+			   
+			    <LinearLayout
+			        android:background="#ffffff"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginRight="15dp"
+			        android:layout_marginLeft="15dip"
+			        android:layout_marginTop="15dip"
+			        android:paddingLeft="10dp"
+			        android:paddingRight="10dp"
+			        android:orientation="vertical">
+		            <TextView
+		                android:layout_width="wrap_content"
+		                android:layout_height="48dp"
+		                android:text="审核意见（必填）"
+		                android:textColor="#9c9c9c"
+		                android:textSize="15sp"
+		                android:layout_centerVertical="true"
+		                android:gravity="center_vertical"/>
+				        <View
+				             android:layout_width="match_parent"
+				             android:layout_height="0.8dp"
+				             android:background="#e5e5e5"/>
+				      
+				        <LinearLayout
+				            android:layout_width="match_parent"
+				            android:layout_height="130dp"
+				            android:gravity="center_vertical"
+				            android:paddingTop="15dp"
+				            android:paddingBottom="10dp"
+				            android:orientation="vertical">
+				             
+				            <EditText
+				                android:id="@+id/shyj"
+				                android:textColor="#5075da"
+				                android:textSize="17sp"
+				                android:layout_width="match_parent"
+				                android:layout_height="wrap_content"
+				                android:lineSpacingMultiplier="1.2"
+				                android:layout_weight="1"
+				                android:maxLength="400"
+				                android:hint="请输入审核意见"
+				                android:textColorHint="#5075da"
+				                android:background="@null"
+				                android:gravity="top"/>
+		
+				            <LinearLayout
+				                android:layout_width="match_parent"
+				                android:layout_height="wrap_content"
+				                android:gravity="right"
+				                android:orientation="horizontal"
+				                android:paddingRight="0dp" >
+		
+				                <TextView
+				                    android:id="@+id/num_shyj"
+				                    android:layout_width="wrap_content"
+				                    android:layout_height="wrap_content"
+				                    android:text="0"
+				                    android:textColor="#9c9c9c"
+				                    android:textSize="15sp"/>
+				                
+				                <TextView
+				                    android:layout_width="wrap_content"
+				                    android:layout_height="wrap_content"
+				                    android:text="/400"
+				                    android:textColor="#9c9c9c"
+				                    android:textSize="15sp"/>
+				            </LinearLayout>
+				        </LinearLayout>
+			     	</LinearLayout>
+			     	
+			    <Button
+		      	    android:id="@+id/ok"
+		      	    android:layout_width="match_parent"
+		      	    android:layout_height="44dp"
+		      	    android:background="@drawable/shape_corner_button_no"
+		      	    android:layout_marginTop="30dp"
+		      	    android:layout_marginLeft="15dp"
+		      	    android:layout_marginBottom="30dp"
+		      	    android:layout_marginRight="15dp"
+		      	    android:text="确定"
+		      	    android:textSize="17sp"
+		      	    android:textColor="#ACBBEA"/>
+			    
+		       </LinearLayout>
+        </ScrollView>
+</LinearLayout>

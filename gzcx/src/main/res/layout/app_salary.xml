@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/core_title_back" />
+
+	<!--<include-->
+		<!--android:id="@+id/listView"-->
+		<!--layout="@layout/core_listview"-->
+		<!--android:background="@color/white" />-->
+	<ListView
+		android:id="@+id/listView"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="@color/white"
+		android:cacheColorHint="#00000000"
+		android:dividerHeight="1px"
+		android:divider="#d9d9d9"
+		android:fastScrollEnabled="true"
+		android:fadingEdge="none"/>
+
+	<com.dk.mp.core.widget.ErrorLayout
+		android:id="@+id/error_layout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+	</com.dk.mp.core.widget.ErrorLayout>
+
+</LinearLayout>

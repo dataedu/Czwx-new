@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/core_title_back" />
+
+    <ScrollView
+        android:id="@+id/scview"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" >
+
+
+            <com.dk.mp.core.view.edittext.DetailView
+                android:id="@+id/remark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="备注信息"
+                android:textSize="18dp" />
+    </ScrollView>
+
+</LinearLayout>

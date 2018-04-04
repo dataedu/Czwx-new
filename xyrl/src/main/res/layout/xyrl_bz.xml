@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/core_title_back" />
+
+    <ScrollView
+        android:id="@+id/scroolview_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <com.dk.mp.core.view.edittext.DetailView
+            android:id="@+id/content"
+            style="@style/txt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white" />
+    </ScrollView>
+
+    <com.dk.mp.core.widget.ErrorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:id="@+id/error_layout">
+    </com.dk.mp.core.widget.ErrorLayout>
+
+</LinearLayout>

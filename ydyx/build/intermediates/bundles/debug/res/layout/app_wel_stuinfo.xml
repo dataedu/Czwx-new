@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/core_title_back" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f4f4f4"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone" >
+
+                <com.dk.mp.ydyx.view.CircleImageView
+                    android:id="@+id/iheader"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_margin="2dip"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/man" />
+
+                <TextView
+                    android:id="@+id/names"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iheader"
+                    android:text=""
+                    android:gravity="right"
+                    android:textColor="#212121"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/camer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/camer" />
+            </RelativeLayout>
+            
+			<View
+               android:layout_width="wrap_content"
+               android:layout_height="0.8dip"
+               android:background="#c9c9c9" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/chose"
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="9dip"
+                    android:paddingRight="9dip" >
+
+                    <TextView
+                        android:id="@+id/date_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="自备车辆"
+                        android:textColor="#212121"
+                        android:textSize="14sp" 
+                         android:layout_weight="0.85"/>
+                    <TextView
+                        android:id="@+id/fangshi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.85"
+                        android:gravity="right"
+                        android:text=""
+                        android:textColor="#212121"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+                    
+                    <CheckBox
+                        android:id="@+id/checkbox_settting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/checkbox_setting"
+                        android:checked="true" 
+                        android:gravity="right"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <LinearLayout
+                    android:id="@+id/dtime_lin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="到达时间"
+                        android:textColor="#212121"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/dtime"
+                        style="@style/edittext_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:textColor="#212121"
+                        android:textSize="12sp"
+                        android:hint="必填"
+                        android:layout_weight="0.85" />
+                     <ImageView
+	                    android:layout_width="7dp"
+	                    android:layout_height="11dp"
+	                    android:layout_marginLeft="10.0dip"
+	                    android:src="@mipmap/into_icon" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="车次班次"
+                        android:textColor="#212121"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/banci"
+                        style="@style/edittext_style"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:textColor="#212121"
+                        android:textSize="12sp"
+                        android:hint="必填" 
+                        android:layout_marginRight="17dip"
+                        android:singleLine="true"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <LinearLayout
+                    android:id="@+id/cdidian"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="到达地点"
+                        android:textColor="#212121"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/dear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.85"
+                        android:gravity="right"
+                        android:text=""
+                        android:textColor="#212121"
+                        android:textSize="12sp"
+                        android:hint="必填" />
+                    
+                      <ImageView
+	                    android:layout_width="7dp"
+	                    android:layout_height="11dp"
+	                    android:layout_marginLeft="10.0dip"
+	                    android:src="@mipmap/into_icon" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0.8dip"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginRight="9dp"
+                    android:background="#c9c9c9" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="9dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="随行人数"
+                        android:textColor="#212121"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/renshu"
+                        style="@style/edittext_style"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:digits="1234567890"
+                        android:gravity="right"
+                        android:textColor="#212121"
+                        android:textSize="12sp"
+                        android:hint="必填" 
+                        android:layout_marginRight="17dip"
+                        android:inputType="number"
+                        android:singleLine="true"/>
+                </LinearLayout>
+                
+                <View
+               android:layout_width="wrap_content"
+               android:layout_height="0.8dip"
+               android:background="#c9c9c9" />
+            </LinearLayout>
+            
+             <LinearLayout
+	         android:layout_width="match_parent"
+	         android:layout_height="wrap_content"
+	         android:layout_marginBottom="20dip"
+	         android:layout_marginTop="20dip" >
+
+	     	 <Button
+	     	     android:id="@+id/submit"
+	     	     android:layout_width="match_parent"
+	     	     android:layout_height="42dip"
+	     	     android:layout_marginLeft="10dip"
+	     	     android:layout_marginRight="10dip"
+	     	     android:background="#c9c9c9"
+	     	     android:text="提交"
+	     	     android:textColor="#ffffff"/>
+	     </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

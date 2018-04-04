@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ededed" >
+    
+	<include layout="@layout/core_title_back"/>
+
+	<com.dk.mp.core.widget.ErrorLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:id="@+id/error_layout"
+		android:gravity="center_horizontal"/>
+
+
+	<!--<GridView
+	    android:id="@+id/scenerygridview"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:numColumns="4"
+	    android:background="#ededed"
+	    android:horizontalSpacing="10dp"   
+   	 	android:verticalSpacing="10dp" 
+   	 	android:listSelector="@android:color/transparent" 
+   	 	android:layout_marginLeft="10dp"
+   	 	android:layout_marginRight="10dp" 
+   	 	android:layout_marginTop="10dp"
+   	 	android:scrollbars="none">
+	    
+	</GridView>-->
+
+	<android.support.v7.widget.RecyclerView
+		android:id="@+id/scenerygridview"
+		android:layout_marginRight="10dp"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" />
+
+
+</LinearLayout>

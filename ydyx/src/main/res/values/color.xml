@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    
+     <color name="wel_do_background">#99d9a7</color>
+    <color name="wel_cando_background">#f9c474</color>
+    <color name="wel_not_background">#f27fa7</color>
+    <color name="wel_more">#ececec</color>
+    <color name="wel_mores">#d2d2d2</color>
+    <color name="text_color">#212121</color>
+    <color name="fenxiang_anxia">#f39800</color>
+    <color name="result_view">#b0000000</color>
+      <color name="viewfinder_mask">#60000000</color>
+      <color name="possible_result_points">#c0ffff00</color> 
+      
+      <color name="submit">#2196F3</color>
+    	<color name="nosubmit">#c9c9c9</color>
+</resources>

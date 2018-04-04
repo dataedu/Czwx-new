@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="54dip"
+    android:background="@drawable/more_bg"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip"
+    android:paddingTop="8dip"
+    android:paddingBottom="8dip" >
+    
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical">
+	    <TextView
+	        android:id="@+id/name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="水水水水"
+	        android:gravity="top"
+	        android:textColor="#212121"
+	        android:textSize="14sp" />
+
+	    <TextView
+	        android:id="@+id/tel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="bottom"
+	        android:text="水水水水"
+	        android:textColor="#2196f3"
+	        android:textSize="12sp"
+	        android:layout_marginTop="5dip"
+	        android:layout_marginRight="30dip"/>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="24dip"
+        android:layout_height="24dip"
+        android:src="@drawable/oa_phone"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>

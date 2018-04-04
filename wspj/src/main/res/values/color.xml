@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bg_color">#efefef</color>
+    <color name="info_panel_bg">#ffeeeeee</color>
+    <color name="title_color">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="press_more">#d5d1d1</color>
+    <color name="black">#000000</color>
+    <color name="green">#2E8B57</color>
+    <color name="gray">#808080</color>
+    <color name="low_gray">#EEEED1</color>
+    <color name="item_press">#7A67EE</color>
+    <color name="tab_bg">#FFFFFF</color>
+    <color name="listview_bar">#EFEFEF</color>
+    <color name="slide_bg">#0078FF</color>
+    <color name="transparent">#00000000</color>
+    <color name="red">#ff0000</color>
+    <color name="background">#FF000000</color>
+    <color name="control_back">#AA00003D</color>
+    <color name="dialog_back">#330000FF</color>
+    <color name="low_blue">#0087b5</color>
+    <color name="blue">#3A5FCD</color>
+    <color name="point_normal_color">#78b4d7</color>
+    <color name="point_seleted_color">#1b4961</color>
+    <color name="more">#313131</color>
+    <color name="content">#898989</color>
+    <color name="msg_title_new">#000000</color>
+    <color name="msg_title_history">#898989</color>
+    
+    <color name="placeholder">#c9c9c9</color>
+    <color name="intro_bg">#cadbf0</color>
+
+</resources>
