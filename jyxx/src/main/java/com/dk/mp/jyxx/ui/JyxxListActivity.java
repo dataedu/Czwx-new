@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
-import com.dk.mp.core.entity.News;
 import com.dk.mp.core.entity.PageMsg;
 import com.dk.mp.core.http.HttpUtil;
 import com.dk.mp.core.http.request.HttpListener;
@@ -28,8 +27,9 @@ import com.dk.mp.core.view.MyListView;
 import com.dk.mp.core.view.RecycleViewDivider;
 import com.dk.mp.core.widget.ErrorLayout;
 import com.dk.mp.jyxx.R;
+import com.dk.mp.jyxx.entity.Jyxx;
 import com.dk.mp.jyxx.ui.JyxxDetailActivity;
-import com.dk.mp.xxxw.db.RealmHelper;
+import com.dk.mp.jyxx.db.RealmHelper;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.Serializable;
@@ -45,7 +45,7 @@ import java.util.Map;
 public class JyxxListActivity extends MyActivity implements View.OnClickListener{
     ErrorLayout mError;
     private MyListView myListView;
-    private List<News> list = new ArrayList<>();
+    private List<Jyxx> list = new ArrayList<Jyxx>();
     private RealmHelper mRealmHelper;
 
     @Override
@@ -105,9 +105,9 @@ public class JyxxListActivity extends MyActivity implements View.OnClickListener
         myListView.startRefresh();
         Map<String,Object> map = new HashMap<>();
         map.put("pageNo",myListView.pageNo);
-        HttpUtil.getInstance().gsonRequest(new TypeToken<PageMsg<News>>(){}, "apps/xxxw/list", map, new HttpListener<PageMsg<News>>() {
+        HttpUtil.getInstance().gsonRequest(new TypeToken<PageMsg<Jyxx>>(){}, "apps/xxxw/list", map, new HttpListener<PageMsg<Jyxx>>() {
             @Override
-            public void onSuccess(PageMsg<News> result) {
+            public void onSuccess(PageMsg<Jyxx> result) {
                 mError.setErrorType(ErrorLayout.HIDE_LAYOUT);
                 if(result.getList() != null && result.getList().size()>0) {
                     if(myListView.pageNo == 1){
@@ -155,8 +155,9 @@ public class JyxxListActivity extends MyActivity implements View.OnClickListener
                 public void onClick(View view) {
                     ViewCompat.setTransitionName(view, "detail_element");
 
-                    News news = list.get(getLayoutPosition());
+                    Jyxx news = list.get(getLayoutPosition());
                     Intent intent = new Intent(mContext, JyxxDetailActivity.class);
+                    intent.putExtra("title",getIntent().getStringExtra("title"));
                     intent.putExtra("news", (Serializable) news);
                     ActivityOptionsCompat options =
                             ActivityOptionsCompat.makeSceneTransitionAnimation((JyxxListActivity) mContext,view,
@@ -174,7 +175,7 @@ public class JyxxListActivity extends MyActivity implements View.OnClickListener
      */
     public void getNewsLocal(int par,int pageNo){
         mError.setErrorType(ErrorLayout.HIDE_LAYOUT);
-        List<News> newses = mRealmHelper.queryAllNews();
+        List<Jyxx> newses = mRealmHelper.queryAllNews();
         if(newses != null && newses.size()>0){
             SnackBarUtil.showShort(myListView, R.string.net_no2);
             list.addAll(newses);

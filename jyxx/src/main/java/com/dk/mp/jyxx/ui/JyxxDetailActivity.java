@@ -56,7 +56,7 @@ public class JyxxDetailActivity extends MyActivity implements View.OnClickListen
         Glide.with(mContext).load(news.getImage()).fitCenter().into(mImageViewTop);
         setWebView ( );
         if ( mToolbar != null ) {
-            mToolbar.setTitle ( "学校新闻" );
+            mToolbar.setTitle (getIntent().getStringExtra("title"));
             setSupportActionBar ( mToolbar );
             getSupportActionBar ( ).setHomeButtonEnabled ( true );
             getSupportActionBar ( ).setDisplayHomeAsUpEnabled ( true );

@@ -1,8 +1,9 @@
-package com.dk.mp.xxxw.db;
+package com.dk.mp.jyxx.db;
 
 import android.content.Context;
 
 import com.dk.mp.core.entity.News;
+import com.dk.mp.jyxx.entity.Jyxx;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class RealmHelper {
      * 批量新增新闻
      * @param d
      */
-    public void addNews(final List<News> d){
+    public void addNews(final List<Jyxx> d){
         mRealm.beginTransaction();
         mRealm.copyToRealmOrUpdate(d);
         mRealm.commitTransaction();
@@ -33,8 +34,8 @@ public class RealmHelper {
      * 查询所有新闻
      * @return
      */
-    public List<News> queryAllNews(){
-        RealmResults<News> jbxxs = mRealm.where(News.class).findAll();
+    public List<Jyxx> queryAllNews(){
+        RealmResults<Jyxx> jbxxs = mRealm.where(Jyxx.class).findAll();
         return mRealm.copyFromRealm(jbxxs);
     }
 
@@ -42,7 +43,7 @@ public class RealmHelper {
      * delete新闻 （删）
      */
     public void deleteAllNews() {
-        RealmResults<News> d = mRealm.where(News.class).findAll();
+        RealmResults<Jyxx> d = mRealm.where(Jyxx.class).findAll();
         mRealm.beginTransaction();
         d.deleteAllFromRealm();
         mRealm.commitTransaction();
