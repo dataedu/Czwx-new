@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dip"
-    android:layout_height="150dip"
-    android:background="@drawable/common_loading_bg"
-    android:gravity="center"
-    android:orientation="vertical" >
-
-    <ProgressBar
-        android:layout_marginTop="20dip"
-        android:id="@+id/oahprogressbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:indeterminateDrawable="@drawable/progress_loading" />
-
-    <TextView
-        android:id="@+id/oaprogresstitle"
-        android:layout_width="150dip"
-        android:layout_height="60dip"
-        android:padding="10dip"
-        android:gravity="top|center_horizontal"
-        android:text="@string/loading"
-        android:textColor="@color/white" />
-
-</LinearLayout>
+    <com.dk.mp.core.view.LoadingView  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/loadview"/>

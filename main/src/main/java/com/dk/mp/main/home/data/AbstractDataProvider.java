@@ -29,6 +29,8 @@ public abstract class AbstractDataProvider {
 
         public abstract String getText();
 
+        public abstract String getUrl();
+
         public abstract void setPinned(boolean pinned);
 
         public abstract boolean isPinned();

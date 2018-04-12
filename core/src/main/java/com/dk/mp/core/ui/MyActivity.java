@@ -437,12 +437,13 @@ private ProgressDialog mProgressDialog;
     /**
      * 创建进度框.
      *
-     * @param mContext Context
      */
     public void showProgressDialog() {
         float density = getResources().getDisplayMetrics().density;
         if (mProgressDialog == null) {
-            ProgressDialog dialog = new ProgressDialog(this);
+            ProgressDialog dialog = new ProgressDialog(this,R.style.MyDialog);
+
+
             dialog.setIndeterminate(true);
             dialog.setCancelable(true);
             mProgressDialog = dialog;
@@ -452,7 +453,7 @@ private ProgressDialog mProgressDialog;
             View view = LayoutInflater.from(this).inflate(R.layout.core_loading,
                     (ViewGroup) getWindow().getDecorView(), false);
             mProgressDialog.setContentView(view,
-                    new ViewGroup.LayoutParams(StringUtils.dip2px(this, 64), StringUtils.dip2px(this, 64)));
+                    new ViewGroup.LayoutParams(StringUtils.dip2px(this, 60), StringUtils.dip2px(this, 60)));
         } catch (Exception e) {
         }
 

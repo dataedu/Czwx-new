@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.dk.mp.core.entity.App;
+import com.dk.mp.core.ui.HttpWebActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AppUtil {
@@ -61,10 +63,10 @@ public class AppUtil {
 	public void checkApp(App app) {
 		try {
 			if (StringUtils.isNotEmpty(app.getPackageName())) {//第三方应用
-//				DeviceUtil.openApk(context, app.getPackageName(), new HashMap<String, String>());
+				DeviceUtil.openApk(context, app.getPackageName(), new HashMap<String, String>());
 			} else {
 				if (StringUtils.isNotEmpty(app.getUrl())) {//网页应用
-//					startUrlActivity(app.getUrl(), app.getName());
+					startUrlActivity(app.getUrl(), app.getName());
 				} else {
 					startActivity(app);
 				}
@@ -79,11 +81,11 @@ public class AppUtil {
 	 * @param url 网页url
 	 * @param title 应用标题
 	 */
-//	public void startUrlActivity(String url, String title) {
-//		Intent intent = new Intent(context, HttpWebActivity.class);
-//		intent.putExtra("title", title);
-//		intent.putExtra("url", url);
-//		context.startActivity(intent);
-//	}
+	public void startUrlActivity(String url, String title) {
+		Intent intent = new Intent(context, HttpWebActivity.class);
+		intent.putExtra("title", title);
+		intent.putExtra("url", url);
+		context.startActivity(intent);
+	}
 
 }

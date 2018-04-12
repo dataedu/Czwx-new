@@ -10,8 +10,19 @@
         android:id="@+id/layout_top"
         layout="@layout/core_title_back" />
 
-    <include
+    <com.dk.mp.core.widget.ErrorLayout
+        android:id="@+id/error_layout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+
+    </com.dk.mp.core.widget.ErrorLayout>
+
+    <ListView
+        style="@style/mylist"
         android:id="@+id/listView"
-        layout="@layout/core_listview" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 
 </LinearLayout>

@@ -1,16 +1,16 @@
 package com.dk.mp.apps.hy.http;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.dk.mp.apps.hy.entity.Bm;
 import com.dk.mp.apps.hy.entity.Ks;
 import com.dk.mp.core.http.HttpClientUtil;
 import com.dk.mp.core.util.Logger;
 import com.lidroid.xutils.http.ResponseInfo;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @since 
@@ -22,13 +22,10 @@ public class YellowPageHttpUtil {
 	
 	/**
 	 * 解析刚刚下载下来的联系人文件，然后将数据保存到数据库表里.
-	 * @param context Context
-	 * @param path 保存路径
 	 */
-	public static List<Bm> getDepartList(ResponseInfo<String> responseInfo) {
+	public static List<Bm> getDepartList(JSONObject s) {
 		List<Bm> list = new ArrayList<Bm>();
 		try {
-			JSONObject s = HttpClientUtil.getJSONObject(responseInfo);
 			if (s != null) {
 				JSONArray array = s.getJSONArray("data");
 				Logger.info(s.toString());
@@ -50,13 +47,10 @@ public class YellowPageHttpUtil {
 	
 	/**
 	 * 解析刚刚下载下来的联系人文件，然后将数据保存到数据库表里.
-	 * @param context Context
-	 * @param path 保存路径
 	 */
-	public static List<Ks> getPeopleList(ResponseInfo<String> responseInfo) {
+	public static List<Ks> getPeopleList(JSONObject s) {
 		List<Ks> list = new ArrayList<Ks>();
 		try {
-			JSONObject s = HttpClientUtil.getJSONObject(responseInfo);
 			if (s != null) {
 				JSONArray array = s.getJSONArray("data");
 				Logger.info(s.toString());

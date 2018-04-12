@@ -1,4 +1,4 @@
-package com.dk.mp.apps.hy;
+package com.dk.mp.core.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import com.dk.mp.core.R;
 
 public class ListRadioDialog {
 	Context context;
@@ -20,17 +20,16 @@ public class ListRadioDialog {
 
 	ListView listview;
 //	TextView title;
-	Button cancel;
+TextView cancel;
 	RadioAdapter radioAdapter;
 
 	public ListRadioDialog(Context context) {
 		this.context = context;
 		dlg = new Dialog(context, R.style.MyDialog);
 		Window window = dlg.getWindow();
-		window.setGravity(Gravity.BOTTOM);
-		window.setContentView(R.layout.core_dialog_radio);
+		window.setContentView(R.layout.core_dialog_list);
 		listview = (ListView) window.findViewById(R.id.listView);
-		cancel = (Button) window.findViewById(R.id.cancel_btn);
+		cancel = (TextView) window.findViewById(R.id.cancel_btn);
 //		title = (TextView) window.findViewById(R.id.title);
 		cancel.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -77,7 +76,7 @@ public class ListRadioDialog {
 
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			View view = mInflater.inflate(R.layout.core_dialog_radio_item, null);
+			View view = mInflater.inflate(R.layout.core_dialog_list_item, null);
 			TextView textView = (TextView) view.findViewById(R.id.txt);
 			textView.setText(list[position]);
 //			textView.setHeight(StringUtils.dip2px(context, 40));

@@ -15,7 +15,6 @@
         android:layout_weight="1"
         android:gravity="center"
         android:paddingLeft="10dip"
-        android:text="@string/dialog_tips"
         android:textSize="16.0sp" 
         android:textColor="#2196f3"/>
 

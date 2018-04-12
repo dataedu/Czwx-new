@@ -159,7 +159,7 @@ public class HpAdapter extends RecyclerView.Adapter<HpAdapter.MyViewHolder> impl
                                 } else {
                                     new AppUtil(mContext).checkApp(
                                             new App(
-                                                    "",
+                                                    mProvider.getItem(onclickposition).getUrl(),
                                                     "",
                                                     "",
                                                     mProvider.getItem(onclickposition).getText(),

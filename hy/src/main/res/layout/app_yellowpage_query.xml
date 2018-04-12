@@ -56,38 +56,23 @@
         android:layout_height="fill_parent"
         android:orientation="vertical" >
 
-        <!--  -->
 
-        <include
+
+        <ListView
+            style="@style/mylist"
             android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/core_listview" />
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
 
-        <LinearLayout
-            android:id="@+id/zwsj"
+        <com.dk.mp.core.widget.ErrorLayout
+            android:id="@+id/error_layout"
+            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:visibility="gone" >
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/zwsj_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="60dp"
-                android:src="@drawable/nodata" />
+        </com.dk.mp.core.widget.ErrorLayout>
 
-            <TextView
-                android:id="@+id/zwsj_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                  android:text="@string/nodata"
-                android:textColor="#d5d5d5"
-                android:textSize="12sp" />
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

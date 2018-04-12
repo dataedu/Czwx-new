@@ -65,7 +65,7 @@ public class TxlDepartActivity extends MyActivity implements EasyPermissions.Per
 
     @Override
     protected int getLayoutID() {
-        return R.layout.app_yellowpage;
+        return R.layout.app_txl;
     }
 
     @Override

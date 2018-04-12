@@ -1,5 +1,6 @@
 package com.dk.mp.core.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -14,6 +15,9 @@ import com.dk.mp.core.R;
 import com.dk.mp.core.application.MyApplication;
 import com.dk.mp.core.dialog.MsgDialog;
 
+import java.util.Iterator;
+import java.util.Map;
+
 /**
  * 作者：janabo on 2016/12/14 16:28
  */
@@ -24,6 +28,7 @@ public class DeviceUtil {
      * 获取网络状态.
      * @return boolean
      */
+    @SuppressLint("MissingPermission")
     public static boolean checkNet() {
         Context context = MyApplication.getContext();
         boolean flag = false;
@@ -34,6 +39,7 @@ public class DeviceUtil {
         return flag;
     }
 
+    @SuppressLint("MissingPermission")
     public static boolean checkNet2() {
         Context context = MyApplication.getContext();
         boolean flag = false;
@@ -177,5 +183,27 @@ public class DeviceUtil {
         } else {
             MsgDialog.show(context, "空号码");
         }
+    }
+
+
+    public static void openApk(Context context, String packageName, Map<String, String> map) {
+        PackageManager packageManager = context.getPackageManager();
+        Intent intent = new Intent();
+        try {
+            intent = packageManager.getLaunchIntentForPackage(packageName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Iterator<Map.Entry<String, String>> ite = map.entrySet().iterator();
+        while (ite.hasNext()) {
+            Map.Entry<String, String> entry = (Map.Entry<String, String>) ite
+                    .next();
+            String key = entry.getKey();// map中的key
+            String value = entry.getValue();// 上面key对应的value
+            intent.putExtra(key, value);
+        }
+
+        context.startActivity(intent);
     }
 }

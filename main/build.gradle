@@ -34,6 +34,8 @@ dependencies {
     compile project(':ykt')
     compile project(':tsg')
     compile project(':pjpy')
+    compile project(':hy')
+    compile project(':gzbxnew')
     //    compile project(':ydlx')
     compile project(':ydqj')
     //    compile project(':ydyx')
@@ -43,4 +45,6 @@ dependencies {
     implementation project(':kcb')
     implementation project(':ydlx')
     implementation project(':ydyx')
+    implementation project(':zslq')
+    implementation project(':jyxx')
 }

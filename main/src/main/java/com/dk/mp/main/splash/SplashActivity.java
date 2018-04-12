@@ -43,7 +43,7 @@ public class SplashActivity extends MyActivity {
         helper = getSharedPreferences();
         imageView = (ImageView) findViewById(R.id.splashImageview);
         layout = (RelativeLayout) findViewById(R.id.splash);
-
+        login();
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -80,6 +80,9 @@ public class SplashActivity extends MyActivity {
 
     private void login(){
         final LoginMsg loginMsg = helper.getLoginMsg();
+        if(loginMsg==null){
+            return ;
+        }
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("userId", loginMsg.getUid());
         map.put("password", loginMsg.getPsw());

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\MyCode\Czwx\ydyx\src\main\assets"/><source path="D:\MyCode\Czwx\ydyx\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\MyCode\Czwx\ydyx\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\AsCode\Czwx-new\ydyx\src\main\assets"/><source path="E:\AsCode\Czwx-new\ydyx\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\AsCode\Czwx-new\ydyx\src\debug\assets"/></dataSet></merger>

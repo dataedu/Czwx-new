@@ -1,5 +1,8 @@
 package com.dk.mp.apps.hy.adapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +12,6 @@ import android.widget.TextView;
 
 import com.dk.mp.apps.hy.R;
 import com.dk.mp.apps.hy.entity.Bm;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * .

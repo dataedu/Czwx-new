@@ -38,7 +38,7 @@ public class TxlAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.app_yellowpage_item,parent,false);
+        View view = inflater.inflate(R.layout.app_txl_item,parent,false);
         return new MyViewHolder(view);
     }
 

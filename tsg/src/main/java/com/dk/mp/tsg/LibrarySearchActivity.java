@@ -7,12 +7,10 @@ import java.util.Map;
 
 import android.annotation.TargetApi;
 import android.os.Build;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
@@ -28,13 +26,8 @@ import com.dk.mp.core.view.listview.XListView;
 import com.dk.mp.core.view.listview.XListView.IXListViewListener;
 import com.dk.mp.core.widget.ErrorLayout;
 import com.dk.mp.tsg.adapter.BookAdapter;
-import com.dk.mp.tsg.adapter.RecordAdapter;
 import com.dk.mp.tsg.entity.Book;
-import com.dk.mp.tsg.entity.BookRecord;
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONObject;
 
 
 @TargetApi(Build.VERSION_CODES.CUPCAKE)

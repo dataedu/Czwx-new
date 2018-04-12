@@ -33,14 +33,14 @@ public class HpDataProvider extends AbstractDataProvider {
         mData = new LinkedList<>();
 
         final int swipeReaction = RecyclerViewSwipeManager.REACTION_CAN_SWIPE_UP | RecyclerViewSwipeManager.REACTION_CAN_SWIPE_DOWN;
-        mData.add(new ConcreteData(mData.size(), 1, "saf", swipeReaction, "asdf","asdf",""));
+        mData.add(new ConcreteData(mData.size(), 1, "saf", swipeReaction, "asdf","asdf","",""));
 
         for (int j = 0; j < apps.size(); j++) {
             final long id = mData.size();
 //            final int viewType = j==0?1:0;
             final int viewType = 0;
             final String text = apps.get(j).getName();
-            mData.add(new ConcreteData(id, viewType, text, swipeReaction, apps.get(j).getIcon(),apps.get(j).getAction(),apps.get(j).getId()));
+            mData.add(new ConcreteData(id, viewType, text, swipeReaction, apps.get(j).getIcon(),apps.get(j).getAction(),apps.get(j).getId(),apps.get(j).getUrl()));
         }
     }
 
@@ -112,18 +112,18 @@ public class HpDataProvider extends AbstractDataProvider {
 
     @Override
     public void addItem(App app) {
-        mData.add(new ConcreteData(mData.size()+1, 0, app.getName(), 0, app.getIcon(), app.getAction(),app.getId()));
+        mData.add(new ConcreteData(mData.size()+1, 0, app.getName(), 0, app.getIcon(), app.getAction(),app.getId(),app.getUrl()));
     }
 
     public void changeDatas(List<App> apps){
         mData.clear();
         final int swipeReaction = RecyclerViewSwipeManager.REACTION_CAN_SWIPE_UP | RecyclerViewSwipeManager.REACTION_CAN_SWIPE_DOWN;
-        mData.add(new ConcreteData(mData.size(), 1, "saf", swipeReaction, "asdf","asdf",""));
+        mData.add(new ConcreteData(mData.size(), 1, "saf", swipeReaction, "asdf","asdf","",""));
         for (int j = 0; j < apps.size(); j++) {
             final long id = mData.size();
             final int viewType = 0;
             final String text = apps.get(j).getName();
-            mData.add(new ConcreteData(id, viewType, text, swipeReaction, apps.get(j).getIcon(),apps.get(j).getAction(),apps.get(j).getId()));
+            mData.add(new ConcreteData(id, viewType, text, swipeReaction, apps.get(j).getIcon(),apps.get(j).getAction(),apps.get(j).getId(),apps.get(j).getUrl()));
         }
     }
 
@@ -138,14 +138,16 @@ public class HpDataProvider extends AbstractDataProvider {
         private String mAction;
 
         private String mAppid;
+        private String url;
 
-        ConcreteData(long id, int viewType, String text, int swipeReaction, String Imagesoruce, String action, String appid) {
+        ConcreteData(long id, int viewType, String text, int swipeReaction, String Imagesoruce, String action, String appid,String url) {
             mId = id;
             mViewType = viewType;
             mText = text;
             mImagesoruce = Imagesoruce;
             mAction = action;
             mAppid = appid;
+            this.url = url;
         }
 
         @Override
@@ -169,6 +171,11 @@ public class HpDataProvider extends AbstractDataProvider {
         @Override
         public String toString() {
             return mText;
+        }
+
+        @Override
+        public String getUrl() {
+            return url;
         }
 
         @Override
@@ -198,10 +205,12 @@ public class HpDataProvider extends AbstractDataProvider {
 
     }
 
+
+
     public List<App> getmData() {
         List<App> apps = new ArrayList<>();
         for (ConcreteData data : mData){
-            App app = new App("", "", "", "", data.getAppid(), "", data.getIcon(), data.getAction());
+            App app = new App(data.url, "", "", "", data.getAppid(), "", data.getIcon(), data.getAction());
             apps.add(app);
         }
         return apps;

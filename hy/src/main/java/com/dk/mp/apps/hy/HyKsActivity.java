@@ -1,28 +1,37 @@
 package com.dk.mp.apps.hy;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.content.Context;
+import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.android.volley.VolleyError;
 import com.dk.mp.apps.hy.adapter.KsAdapter;
 import com.dk.mp.apps.hy.db.YellowPageDBHelper;
 import com.dk.mp.apps.hy.entity.Ks;
 import com.dk.mp.apps.hy.http.YellowPageHttpUtil;
+
+import com.dk.mp.core.dialog.ListRadioDialog;
 import com.dk.mp.core.dialog.MsgDialog;
 import com.dk.mp.core.http.HttpClientUtil;
+import com.dk.mp.core.http.HttpUtil;
+import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
 import com.dk.mp.core.util.DeviceUtil;
+
+import com.dk.mp.core.widget.ErrorLayout;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import org.json.JSONObject;
 
 /**
  * @since 
@@ -36,36 +45,32 @@ public class HyKsActivity extends MyActivity {
 	private ListView listView;
 	private KsAdapter adapter;
 	private String name;
+	private ErrorLayout errorLayout;
+	@Override
+	protected int getLayoutID() {
+		return R.layout.core_mylistview;
+	}
 
-    @Override
-    protected int getLayoutID() {
-        return R.layout.core_mylistview;
-    }
-
-//    @Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.core_mylistview);
-//		id = getIntent().getStringExtra("id");
-//		name = getIntent().getStringExtra("name");
-//		setTitle(name);
-//		initViews();
-//		if(DeviceUtil.checkNet2()){
-//			getPeopleList();
-//		}else{
-//			getList();
-//		}
-//	}
+	@Override
+	protected void initialize() {
+		super.initialize();
+		id = getIntent().getStringExtra("id");
+		name = getIntent().getStringExtra("name");
+		setTitle(name);
+		initViews();
+		if(DeviceUtil.checkNet2()){
+			getPeopleList();
+		}else{
+			getList();
+		}
+	}
 
 	/**
 	 * 初始化控�?
 	 */
-    protected void initView() {
-        id = getIntent().getStringExtra("id");
-        name = getIntent().getStringExtra("name");
-        setTitle(name);
-
-		listView = (ListView) this.findViewById(R.id.listView);
+	private void initViews() {
+		errorLayout = (ErrorLayout) findViewById(R.id.error_layout);
+		listView = (ListView) findViewById(R.id.listView);
 //		listView.setBackgroundResource(R.color.view_bg);
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -73,24 +78,19 @@ public class HyKsActivity extends MyActivity {
 
 				final String[] str = getTel(adapter.getItem(position).getList());
 				if (str.length > 0) {
-					final String[] str1 = str[0].split("/");
 					final ListRadioDialog l = new ListRadioDialog(context);
-					l.show(str1, new OnItemClickListener() {
+					l.show(str, new OnItemClickListener() {
 						@Override
 						public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 							l.cancel();
-							DeviceUtil.call(context, str1[position]);
+							DeviceUtil.call(context, str[position]);
 						}
 					});
 				}
 
 			}
 		});
-        if(DeviceUtil.checkNet2()){
-            getPeopleList();
-        }else{
-            getList();
-        }
+
 	}
 
 	private String[] getTel(List<String> tels) {
@@ -111,7 +111,7 @@ public class HyKsActivity extends MyActivity {
 			listView.setAdapter(adapter);
 			MsgDialog.show(context, context.getString(R.string.net_no2));
 		}else{
-			setNoWorkNet();
+			errorLayout.setErrorType(ErrorLayout.NETWORK_ERROR);
 		}
 	}
 
@@ -144,33 +144,33 @@ public class HyKsActivity extends MyActivity {
 
 	/**
 	 * 初始化列表.
-
 	 * @return List<App>
 	 */
 	public void getPeopleList() {
 		if (DeviceUtil.checkNet()) {
-			showProgressDialog();
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("id", id);
-			HttpClientUtil.post("apps/yellowpage/getKsList", map, new RequestCallBack<String>() {
+			errorLayout.setErrorType(ErrorLayout.LOADDATA);
+
+			HttpUtil.getInstance().postJsonObjectRequest("apps/yellowpage/getKsList?id="+id, null, new HttpListener<JSONObject>() {
 				@Override
-				public void onSuccess(ResponseInfo<String> responseInfo) {
-					hideProgressDialog();
-					list = YellowPageHttpUtil.getPeopleList(responseInfo);
+				public void onSuccess(JSONObject result) {
+					errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
+					list = YellowPageHttpUtil.getPeopleList(result);
 					if(list.size()>0){
 						new YellowPageDBHelper(context).insertPeopleList(id, list);
 						handler.sendEmptyMessage(1);
 					}else{
-						setNoDate(null);
+						errorLayout.setErrorType(ErrorLayout.NODATA);
 					}
 				}
 
 				@Override
-				public void onFailure(HttpException error, String msg) {
-					setErrorDate(null);
-					hideProgressDialog();
+				public void onError(VolleyError error) {
+					errorLayout.setErrorType(ErrorLayout.DATAFAIL);
+					errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
+
 				}
 			});
+
 		}
 	}
 

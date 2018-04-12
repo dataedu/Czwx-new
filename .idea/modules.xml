@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Czwx.iml" filepath="$PROJECT_DIR$/Czwx.iml" />
+      <module fileurl="file://E:\AsCode\Czwx-new\Czwx.iml" filepath="E:\AsCode\Czwx-new\Czwx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Czwx-new.iml" filepath="$PROJECT_DIR$/Czwx-new.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cjcx/cjcx.iml" filepath="$PROJECT_DIR$/cjcx/cjcx.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
@@ -10,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/gzcx/gzcx.iml" filepath="$PROJECT_DIR$/gzcx/gzcx.iml" />
       <module fileurl="file://$PROJECT_DIR$/hy/hy.iml" filepath="$PROJECT_DIR$/hy/hy.iml" />
       <module fileurl="file://$PROJECT_DIR$/jfcx/jfcx.iml" filepath="$PROJECT_DIR$/jfcx/jfcx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jyxx/jyxx.iml" filepath="$PROJECT_DIR$/jyxx/jyxx.iml" />
       <module fileurl="file://$PROJECT_DIR$/kcb/kcb.iml" filepath="$PROJECT_DIR$/kcb/kcb.iml" />
       <module fileurl="file://$PROJECT_DIR$/main/main.iml" filepath="$PROJECT_DIR$/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/pjpy/pjpy.iml" filepath="$PROJECT_DIR$/pjpy/pjpy.iml" />
@@ -26,6 +28,8 @@
       <module fileurl="file://$PROJECT_DIR$/ydqj/ydqj.iml" filepath="$PROJECT_DIR$/ydqj/ydqj.iml" />
       <module fileurl="file://$PROJECT_DIR$/ydyx/ydyx.iml" filepath="$PROJECT_DIR$/ydyx/ydyx.iml" />
       <module fileurl="file://$PROJECT_DIR$/ykt/ykt.iml" filepath="$PROJECT_DIR$/ykt/ykt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zslq/zslq.iml" filepath="$PROJECT_DIR$/zslq/zslq.iml" />
+      <module fileurl="file://E:\AsCode\Czwx-new\zsxx\zsxx.iml" filepath="E:\AsCode\Czwx-new\zsxx\zsxx.iml" />
     </modules>
   </component>
 </project>

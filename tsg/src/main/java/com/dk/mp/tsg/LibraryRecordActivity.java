@@ -1,22 +1,15 @@
 package com.dk.mp.tsg;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ListView;
 
 import com.android.volley.VolleyError;
-import com.dk.mp.core.entity.Department;
 import com.dk.mp.core.http.HttpUtil;
 import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.BaseFragment;
-import com.dk.mp.core.ui.MyActivity;
 import com.dk.mp.core.util.DeviceUtil;
 import com.dk.mp.core.widget.ErrorLayout;
 import com.dk.mp.tsg.adapter.RecordAdapter;

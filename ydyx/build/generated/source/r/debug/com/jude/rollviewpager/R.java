@@ -22,9 +22,9 @@ public final class R {
         public static int center = 0x7f0c0032;
         public static int left = 0x7f0c009d;
         public static int number = 0x7f0c00c8;
-        public static int point = 0x7f0c00d8;
-        public static int right = 0x7f0c00ed;
-        public static int viewpager_inner = 0x7f0c0159;
+        public static int point = 0x7f0c00d6;
+        public static int right = 0x7f0c00eb;
+        public static int viewpager_inner = 0x7f0c0157;
     }
     public static final class styleable {
         public static int[] RollViewPager = { 0x7f04012e, 0x7f04012f, 0x7f040130, 0x7f040131, 0x7f040132, 0x7f040133, 0x7f040134, 0x7f040135, 0x7f040136 };
