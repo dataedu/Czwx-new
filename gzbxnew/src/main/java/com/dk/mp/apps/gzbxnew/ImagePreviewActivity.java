@@ -12,7 +12,6 @@ import com.dk.mp.apps.gzbxnew.adapter.ImagePagerAdapter;
 import com.dk.mp.core.ui.MyActivity;
 
 public class ImagePreviewActivity extends MyActivity {
-	
 	private ViewPager mViewPager;
     private List<String> mList;
     private int index;
