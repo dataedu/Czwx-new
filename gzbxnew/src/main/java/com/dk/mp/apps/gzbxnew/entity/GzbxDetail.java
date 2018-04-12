@@ -15,6 +15,9 @@ public class GzbxDetail {
 	private String bxdd;
 	private String czhj;
 	private String bxnr;
+	private String bxrlxdh;
+	private String fj;
+
 	public String getId() {
 		return id;
 	}
@@ -69,5 +72,17 @@ public class GzbxDetail {
 	public void setBxnr(String bxnr) {
 		this.bxnr = bxnr;
 	}
-	
+	public String getBxrlxdh() {
+		return bxrlxdh;
+	}
+	public void setBxrlxdh(String bxrlxdh) {
+		this.bxrlxdh = bxrlxdh;
+	}
+	public String getFj() {
+		return fj;
+	}
+	public void setFj(String fj) {
+		this.fj = fj;
+	}
+
 }

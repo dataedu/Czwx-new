@@ -1,4 +1,4 @@
-package com.dk.mp.apps.gzbxnew;
+package com.dk.mp.apps.gzbxnew.widget;
 
 import java.util.ArrayList;
 import java.util.List;

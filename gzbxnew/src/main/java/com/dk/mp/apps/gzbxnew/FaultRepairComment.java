@@ -1,9 +1,12 @@
 package com.dk.mp.apps.gzbxnew;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ListView;
 
 import com.android.volley.VolleyError;
 import com.dk.mp.apps.gzbxnew.adapter.FaultRepairApplyAdapter;
@@ -11,16 +14,16 @@ import com.dk.mp.apps.gzbxnew.entity.Gzbx;
 import com.dk.mp.apps.gzbxnew.http.HttpUtil;
 import com.dk.mp.core.dialog.MsgDialog;
 import com.dk.mp.core.entity.PageMsg;
-import com.dk.mp.core.http.HttpClientUtil;
 import com.dk.mp.core.http.request.HttpListener;
+import com.dk.mp.core.ui.BaseFragment;
 import com.dk.mp.core.ui.MyActivity;
+import com.dk.mp.core.util.BroadcastUtil;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
 import com.dk.mp.core.util.DeviceUtil;
 import com.dk.mp.core.util.StringUtils;
 import com.dk.mp.core.view.listview.XListView;
 import com.dk.mp.core.view.listview.XListView.IXListViewListener;
-import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.dk.mp.core.widget.ErrorLayout;
 
 import org.json.JSONObject;
 
@@ -34,7 +37,7 @@ import java.util.Map;
  * @author admin
  *
  */
-public class FaultRepairCommentOnActivity extends MyActivity implements IXListViewListener{
+public class FaultRepairComment extends BaseFragment implements IXListViewListener{
 	private Context mContext;
 	private XListView listView;
 	private FaultRepairApplyAdapter mAdapter;
@@ -45,36 +48,53 @@ public class FaultRepairCommentOnActivity extends MyActivity implements IXListVi
 	private String pjzt;
 	private String shzt;
 	private String type = "1";
-	private String category ="1";
+    private String category="1";
 	private String jklx;
 
+	private ErrorLayout errorLayout;
 	@Override
-	protected int getLayoutID() {
+	protected int getLayoutId() {
 		return R.layout.fault_repair_commenton;
 	}
 
-	protected void initView(){
-		mContext = FaultRepairCommentOnActivity.this;
+	@Override
+	protected void initialize(View view) {
+		super.initialize(view);
+		mContext = getActivity();
 		helper = new CoreSharedPreferencesHelper(mContext);
-		pjzt = getIntent().getStringExtra("pjzt");
-		shzt = getIntent().getStringExtra("shzt");
-		jklx = getIntent().getStringExtra("jklx");
-		category = getIntent().getStringExtra("category");
+		pjzt  = getArguments().getString("pjzt");;
+		shzt = getArguments().getString("shzt");;
+		jklx = getArguments().getString("jklx");;
+		category= getArguments().getString("category");;
+
 		if(StringUtils.isNotEmpty(pjzt)){
 			type = "1";
 		}else{
 			type = "3";
 		}
-		listView = (XListView) findViewById(R.id.listView);
+		errorLayout = (ErrorLayout) view.findViewById(R.id.error_layout);
+		listView = (XListView)view. findViewById(R.id.listView);
 		listView.setPullLoadEnable(true);
 		listView.setPullRefreshEnable(true);
 		listView.setXListViewListener(this);
+		onRefresh();
+		BroadcastUtil.registerReceiver(mContext, mRefreshBroadcastReceiver, new String[]{"gzbxpl"});
 	}
+
+	private BroadcastReceiver mRefreshBroadcastReceiver = new BroadcastReceiver() {
+		@SuppressLint("NewApi") @Override
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+			if (action.equals("gzbxpl")) {
+				onRefresh();
+			}
+		}
+	};
 
 	@Override
 	public void onRefresh() {
 		if(DeviceUtil.checkNet2()){//判断网络
-	//		hideError();
+			errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 			pageNo = 1;
 			getData();
 		}else{
@@ -83,7 +103,7 @@ public class FaultRepairCommentOnActivity extends MyActivity implements IXListVi
 				listView.stopRefresh();
 				listView.stopLoadMore();
 			}else{
-				setNoWorkNet();
+				errorLayout.setErrorType(ErrorLayout.NETWORK_ERROR);
 			}
 		}
 	}
@@ -110,7 +130,7 @@ public class FaultRepairCommentOnActivity extends MyActivity implements IXListVi
 	
 	
 	private void getData(){
-		showProgressDialog();
+		errorLayout.setErrorType(ErrorLayout.LOADDATA);
 		Map<String,Object> map = new HashMap<String,Object>();
 		if(helper.getLoginMsg()!=null){
 			map.put("userId", helper.getLoginMsg().getUid());
@@ -123,7 +143,7 @@ public class FaultRepairCommentOnActivity extends MyActivity implements IXListVi
 		com.dk.mp.core.http.HttpUtil.getInstance().postJsonObjectRequest("apps/gzbx/getList", map, new HttpListener<JSONObject>() {
 			@Override
 			public void onSuccess(JSONObject  arg0) {
-				hideProgressDialog();
+				errorLayout.setErrorType(ErrorLayout.HIDE_LAYOUT);
 				PageMsg pageMsg = HttpUtil.getList(arg0);
 				countPage = (int) pageMsg.getTotalPages();
 				if(pageMsg.getList().size()>0){
@@ -139,11 +159,11 @@ public class FaultRepairCommentOnActivity extends MyActivity implements IXListVi
 
 			@Override
 			public void onError(VolleyError error) {
-				hideProgressDialog();
+				//hideProgressDialog();
 				if(pageNo ==1){
-					setErrorDate(null);
+					errorLayout.setErrorType(ErrorLayout.NODATA);
 				}else{
-					showMessage(getString(R.string.data_fail));
+					errorLayout.setErrorType(ErrorLayout.DATAFAIL);
 				}
 			}
 
@@ -156,7 +176,7 @@ public class FaultRepairCommentOnActivity extends MyActivity implements IXListVi
 			switch (msg.what) {
 			case 0://没获取到数据
 				if(pageNo ==1){
-					setNoDate(null);
+					errorLayout.setErrorType(ErrorLayout.NODATA);
 					listView.setVisibility(View.GONE);
 				}else{
 					showMessage("没有更多数据");
@@ -186,9 +206,7 @@ public class FaultRepairCommentOnActivity extends MyActivity implements IXListVi
 		};
 	};
 	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		onRefresh();
-	};
+
+
+
 }

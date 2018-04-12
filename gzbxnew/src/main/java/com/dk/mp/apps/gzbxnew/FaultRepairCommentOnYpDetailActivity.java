@@ -21,14 +21,11 @@ public class FaultRepairCommentOnYpDetailActivity extends MyActivity {
 		return R.layout.fault_repair_commenton_yp;
 	}
 
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.fault_repair_commenton_yp);
-//		setTitle("故障报修");
-//		gzbx = (Gzbx) getIntent().getSerializableExtra("gzbxs");
-//		initView();
-//	}
+	@Override
+	protected void initialize() {
+		super.initialize();
+		initView();
+	}
 
 	public void initView(){
 		setTitle("故障报修");

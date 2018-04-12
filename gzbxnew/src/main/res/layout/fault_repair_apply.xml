@@ -16,7 +16,7 @@
         android:dividerHeight="0dp"
         android:divider="#ededf1"
         android:layout_below="@id/layout_top"/>
-    
+
     <LinearLayout
         android:id="@+id/zwsj"
         android:layout_width="match_parent"

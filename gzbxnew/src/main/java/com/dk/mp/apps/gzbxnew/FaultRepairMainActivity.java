@@ -9,15 +9,20 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.android.volley.VolleyError;
 import com.dk.mp.apps.gzbxnew.entity.GzbxRole;
 import com.dk.mp.apps.gzbxnew.http.HttpUtil;
+import com.dk.mp.core.entity.PageMsg;
 import com.dk.mp.core.http.HttpClientUtil;
+import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
 import com.dk.mp.core.util.DeviceUtil;
 import com.dk.mp.core.util.StringUtils;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,26 +47,25 @@ import java.util.Map;
 		return R.layout.fault_repair_main;
 	}
 
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.fault_repair_main);
-//		mContext  = this;
-//		helper = new CoreSharedPreferencesHelper(mContext);
-//		initView();
-//		if(helper.getLoginMsg() != null && StringUtils.isNotEmpty(helper.getValue(helper.getLoginMsg().getUid()+faultrepair_key))){//存在角色
-//			role = new GzbxRole();
-//			String value = helper.getValue(helper.getLoginMsg().getUid()+faultrepair_key);
-//			role.setBxsh(Boolean.parseBoolean(value));
-//			mHandler.sendEmptyMessage(1);
-//		}else{//不存在就重新获取
-//			if(DeviceUtil.checkNet2()){//判断网络
-//				getRole();
-//			}else{
-//				setNoWorkNet();
-//			}
-//		}
-//	}
+	@Override
+	protected void initialize() {
+		super.initialize();
+		mContext  = this;
+		helper = new CoreSharedPreferencesHelper(mContext);
+		initView();
+		if(helper.getLoginMsg() != null && StringUtils.isNotEmpty(helper.getValue(helper.getLoginMsg().getUid()+faultrepair_key))){//存在角色
+			role = new GzbxRole();
+			String value = helper.getValue(helper.getLoginMsg().getUid()+faultrepair_key);
+			role.setBxsh(Boolean.parseBoolean(value));
+			mHandler.sendEmptyMessage(1);
+		}else{//不存在就重新获取
+			if(DeviceUtil.checkNet2()){//判断网络
+				getRole();
+			}else{
+				setNoWorkNet();
+			}
+		}
+	}
 	
 	/**
 	 * 初始化view
@@ -106,27 +110,32 @@ import java.util.Map;
 	 */
 	private void getRole(){
 		showProgressDialog();
-		Map<String,String> map = new HashMap<String, String>();
-		if(helper.getLoginMsg()!=null){
-			map.put("userId", helper.getLoginMsg().getUid());
-		}
-		HttpClientUtil.post("apps/gzbx/role", map, new RequestCallBack<String>() {
+		Map<String,Object> map = new HashMap<String, Object>();
+
+
+
+
+		com.dk.mp.core.http.HttpUtil.getInstance().postJsonObjectRequest("apps/gzbx/role", map, new HttpListener<JSONObject>() {
 			@Override
-			public void onSuccess(ResponseInfo<String> arg0) {
-				role = HttpUtil.getRole(arg0);
+			public void onSuccess(JSONObject result) {
+				role = HttpUtil.getRole(result);
 				if(role == null){
 					mHandler.sendEmptyMessage(0);
 				}else{
 					mHandler.sendEmptyMessage(1);
 				}
 			}
-			
+
 			@Override
-			public void onFailure(com.lidroid.xutils.exception.HttpException arg0, String arg1) {
+			public void onError(VolleyError error) {
 				hideProgressDialog();
 				setErrorDate(null);
+				setContentView(R.layout.core_loadview);
 			}
 		});
+
+
+
 	}
 	
 

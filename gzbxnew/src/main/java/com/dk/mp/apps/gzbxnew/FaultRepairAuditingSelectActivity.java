@@ -25,12 +25,14 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
 import com.dk.mp.apps.gzbxnew.adapter.FaultRepairAuditingSelectAdapter;
 import com.dk.mp.apps.gzbxnew.adapter.FaultRepairAuditingSelectAdapter.MyView;
 import com.dk.mp.apps.gzbxnew.entity.Bxlx;
 import com.dk.mp.apps.gzbxnew.entity.Result;
 import com.dk.mp.apps.gzbxnew.http.HttpUtil;
 import com.dk.mp.core.http.HttpClientUtil;
+import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
 import com.dk.mp.core.util.DeviceUtil;
@@ -40,6 +42,8 @@ import com.dk.mp.core.view.listview.XListView;
 import com.dk.mp.core.view.listview.XListView.IXListViewListener;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;
@@ -65,7 +69,7 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 	XListView listView;
 	private Button ok;
 	private String gzbxid;
-	com.dk.mp.apps.gzbxnew.TagLayout mFlowLayout;
+	com.dk.mp.apps.gzbxnew.widget.TagLayout mFlowLayout;
 	private String ryid = "";//人员id
 	private ScrollView sv_parent,sv_child;
 	private Map<String,CheckedTextView> map = new HashMap<String,CheckedTextView>();
@@ -76,18 +80,11 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 		return R.layout.fault_repair_auditing_select;
 	}
 
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.fault_repair_auditing_select);
-//		mContext = this;
-//		helper = new CoreSharedPreferencesHelper(mContext);
-//		title = getIntent().getStringExtra("title");
-//		setTitle(title);
-//		type = getIntent().getStringExtra("type");
-//		gzbxid = getIntent().getStringExtra("gzbxid");
-//		initView();
-//	}
+	@Override
+	protected void initialize() {
+		super.initialize();
+		initView();
+	}
 
 	protected void initView(){
 		mContext = this;
@@ -96,7 +93,7 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 		setTitle(title);
 		type = getIntent().getStringExtra("type");
 		gzbxid = getIntent().getStringExtra("gzbxid");
-		mFlowLayout = (com.dk.mp.apps.gzbxnew.TagLayout) findViewById(R.id.tags);
+		mFlowLayout = (com.dk.mp.apps.gzbxnew.widget.TagLayout) findViewById(R.id.tags);
 		wxry_lin = (LinearLayout) findViewById(R.id.wxry_lin);
 		wxlx_lin = (LinearLayout) findViewById(R.id.wxlx_lin);
 		listView = (XListView) findViewById(R.id.listView);
@@ -176,9 +173,9 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 	 */
 	private void getWxlxs(){
 		showProgressDialog();
-		HttpClientUtil.post("apps/gzbx/wxlx", null, new RequestCallBack<String>() {
+		com.dk.mp.core.http.HttpUtil.getInstance().postJsonObjectRequest("apps/gzbx/wxlx", null, new HttpListener<JSONObject>() {
 			@Override
-			public void onSuccess(ResponseInfo<String> arg0) {
+			public void onSuccess(JSONObject arg0) {
 				hideProgressDialog();
 				wxlxs = HttpUtil.getBxlxs(arg0);
 				if(wxlxs.size()>0)
@@ -188,7 +185,7 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 			}
 
 			@Override
-			public void onFailure(com.lidroid.xutils.exception.HttpException e, String s) {
+			public void onError(VolleyError error) {
 				hideProgressDialog();
 				setErrorDate(null);
 			}
@@ -200,9 +197,9 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 	 * 获取人员列表
 	 */
 	private void getRylbs(){
-		HttpClientUtil.post("apps/gzbx/rylb", null, new RequestCallBack<String>() {
+		com.dk.mp.core.http.HttpUtil.getInstance().postJsonObjectRequest("apps/gzbx/rylb", null, new HttpListener<JSONObject>() {
 			@Override
-			public void onSuccess(ResponseInfo<String> arg0) {
+			public void onSuccess(JSONObject arg0) {
 				rylbs = HttpUtil.getBxlxs(arg0);
 				if(rylbs.size()>0)
 					mHandler.sendEmptyMessage(2);
@@ -211,7 +208,7 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 			}
 
 			@Override
-			public void onFailure(com.lidroid.xutils.exception.HttpException e, String s) {
+			public void onError(VolleyError error) {
 				setErrorDate(null);
 			}
 		});
@@ -374,7 +371,7 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 	 */
 	public void submit(){
 		showProgressDialog();
-		Map<String,String> map = new HashMap<String, String>();
+		Map<String,Object> map = new HashMap<String, Object>();
 		if(helper.getLoginMsg()!=null){
 			map.put("userId", helper.getLoginMsg().getUid());
 		}
@@ -387,11 +384,11 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 		}else{
 			map.put("wxlb", "");
 		}
-		
-		HttpClientUtil.post("apps/gzbx/sh", map, new RequestCallBack<String>() {
+
+		com.dk.mp.core.http.HttpUtil.getInstance().postJsonObjectRequest("apps/gzbx/sh", map, new HttpListener<JSONObject>() {
 
 			@Override
-			public void onSuccess(ResponseInfo<String> arg0) {
+			public void onSuccess(JSONObject arg0) {
 				hideProgressDialog();
 				ok.setEnabled(true);
 				Result result = HttpUtil.getResult(arg0);
@@ -409,7 +406,7 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 			}
 
 			@Override
-			public void onFailure(com.lidroid.xutils.exception.HttpException e, String s) {
+			public void onError(VolleyError error) {
 				hideProgressDialog();
 				showMessage("提交失败，请稍后再试");
 				ok.setEnabled(true);

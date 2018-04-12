@@ -31,20 +31,17 @@ public class FaultRepairAuditingDetailActivity extends MyActivity implements OnC
 		return R.layout.fault_repair_auditing_detail;
 	}
 
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.fault_repair_auditing_detail);
-//		setTitle("故障报修");
-//		mContext = this;
-//		gzbx = (Gzbx) getIntent().getSerializableExtra("gzbxs");
-//		initView();
-//		instance = FaultRepairAuditingDetailActivity.this;
-//	}
-
-	public void initView(){
+	@Override
+	protected void initialize() {
+		super.initialize();
 		setTitle("故障报修");
 		mContext = this;
+		instance = FaultRepairAuditingDetailActivity.this;
+		initView();
+	}
+
+	public void initView(){
+
 		gzbx = (Gzbx) getIntent().getSerializableExtra("gzbxs");
 		instance = FaultRepairAuditingDetailActivity.this;
 		bxdh = (TextView) findViewById(R.id.bxdh);

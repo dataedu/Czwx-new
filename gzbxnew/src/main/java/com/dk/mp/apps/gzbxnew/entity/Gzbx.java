@@ -26,6 +26,8 @@ public class Gzbx implements Serializable{
 	private String wxry;
 	private String pjdj;//评价等级
 	private String pjyj;//评价意见
+	private String bxrlxdh;//联系电话
+	private String fj;//附件
 	
 	public String getName() {
 		return name;
@@ -110,6 +112,18 @@ public class Gzbx implements Serializable{
 	}
 	public void setPjyj(String pjyj) {
 		this.pjyj = pjyj;
+	}
+	public String getBxrlxdh() {
+		return bxrlxdh;
+	}
+	public void setBxrlxdh(String bxrlxdh) {
+		this.bxrlxdh = bxrlxdh;
+	}
+	public String getFj() {
+		return fj;
+	}
+	public void setFj(String fj) {
+		this.fj = fj;
 	}
 	
 }

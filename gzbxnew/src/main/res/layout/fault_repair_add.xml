@@ -138,12 +138,60 @@
 			    </LinearLayout>
 			    
 			    <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="120dp"
+	                android:layout_marginRight="15dp"
+			        android:layout_marginLeft="15dip"
+	                android:background="@color/white"
+	                android:orientation="vertical"
+	                android:id="@+id/addFile">
+			        
+			        <FrameLayout
+			            android:id="@+id/showimg"
+			            android:layout_width="match_parent"
+			            android:layout_height="match_parent"
+			            android:visibility="gone">
+				        <ImageView
+				            android:id="@+id/show_img"
+				            android:layout_width="match_parent"
+				            android:layout_height="match_parent"
+				            android:scaleType="centerCrop"/>
+				        <ImageView
+				            android:id="@+id/delete_img"
+				            android:layout_width="44dp"
+				            android:layout_height="44dp"
+				            android:src="@drawable/repair_del"
+				            android:layout_gravity="right"/>
+                	</FrameLayout>
+					<LinearLayout
+					    android:id="@+id/addimg"
+					    android:layout_width="match_parent"
+					    android:layout_height="match_parent"
+					    android:orientation="vertical"
+					    android:gravity="center">
+					    	<ImageView
+					    	    android:layout_width="50dp"
+					    	    android:layout_height="50dp"
+					    	    android:src="@drawable/add_img"/>
+					    	<TextView
+						       android:layout_width="wrap_content"
+						       android:layout_height="wrap_content"
+						       android:textColor="#5075da"
+						       android:textSize="17sp"
+						       android:text="上传报修照片"
+						       android:gravity="center_vertical"
+						       android:layout_marginTop="10dp"/>     
+               		</LinearLayout>
+            </LinearLayout>
+			    
+			    <LinearLayout
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
 			        android:orientation="vertical"
 			        android:background="#ffffff"
 			        android:layout_marginLeft="15dp"
-			        android:layout_marginRight="15dp">
+			        android:layout_marginRight="15dp"
+			         android:layout_marginTop="15dip">
 			             <LinearLayout
 						        android:layout_width="match_parent"
 						        android:layout_height="40dp"
@@ -166,7 +214,7 @@
 			             <ScrollView
 			                 android:id="@+id/sv_child"
 			                 android:layout_width="match_parent"
-			                 android:layout_height="100dp"
+			                 android:layout_height="110dp"
 			                 android:scrollbars="none">
 				             <com.dk.mp.apps.gzbxnew.widget.TagLayout
 				                 android:id="@+id/tags"
@@ -320,6 +368,39 @@
 				        </LinearLayout>
 			     	</LinearLayout>
 			     	
+			   <LinearLayout
+			        android:background="#ffffff"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginRight="15dp"
+			        android:layout_marginLeft="15dip"
+			        android:layout_marginTop="15dip"
+			        android:paddingLeft="10dp"
+			        android:paddingRight="10dp"
+			        android:orientation="horizontal">
+				   <TextView
+				       android:layout_width="wrap_content"
+				       android:layout_height="match_parent"
+				       android:textColor="#5075da"
+				       android:textSize="17sp"
+				       android:text="报修电话"
+				       android:gravity="center_vertical"/>     
+			       
+				   <EditText
+				       android:id="@+id/lxdh"
+				       android:layout_width="match_parent"
+				       android:layout_height="44dip"
+				       android:textColor="#5075da"
+				       android:textSize="17sp"
+				       android:hint="(请输入自己的手机号码)"
+				       android:textColorHint="#9c9c9c"
+				       android:maxLines="1"
+				       android:maxLength="11"
+				       android:background="@null"
+				       android:inputType="phone"
+				       android:layout_marginLeft="10dp"/>
+			   </LinearLayout>
+			   
 			    <Button
 		      	    android:id="@+id/ok"
 		      	    android:layout_width="match_parent"

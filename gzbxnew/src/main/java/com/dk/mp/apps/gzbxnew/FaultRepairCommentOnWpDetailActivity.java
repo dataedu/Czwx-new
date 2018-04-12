@@ -11,16 +11,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
 import com.dk.mp.apps.gzbxnew.RatingBarView.OnRatingListener;
 import com.dk.mp.apps.gzbxnew.entity.Gzbx;
 import com.dk.mp.apps.gzbxnew.entity.Result;
 import com.dk.mp.apps.gzbxnew.http.HttpUtil;
 import com.dk.mp.core.http.HttpClientUtil;
+import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
+import com.dk.mp.core.util.BroadcastUtil;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
 import com.dk.mp.core.util.DeviceUtil;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,16 +48,12 @@ public class FaultRepairCommentOnWpDetailActivity extends MyActivity {
 	protected int getLayoutID() {
 		return R.layout.fault_repair_commenton_wp;
 	}
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.fault_repair_commenton_wp);
-//		setTitle("故障报修");
-//		gzbx = (Gzbx) getIntent().getSerializableExtra("gzbxs");
-//		mContext = this;
-//		helper = new CoreSharedPreferencesHelper(mContext);
-//		initView();
-//	}
+
+	@Override
+	protected void initialize() {
+		super.initialize();
+		initView();
+	}
 
 	protected void initView(){
 		setTitle("故障报修");
@@ -150,29 +151,30 @@ public class FaultRepairCommentOnWpDetailActivity extends MyActivity {
 	 */
 	public void submit(){
 		showProgressDialog();
-		Map<String,String> map = new HashMap<String, String>();
+		Map<String,Object> map = new HashMap<String, Object>();
 		if(helper.getLoginMsg()!=null){
 			map.put("userId", helper.getLoginMsg().getUid());
 		}
 		map.put("id", gzbx.getId());
 		map.put("message", pjnr.getText().toString());
 		map.put("star", rBar.getStarCount()+"");
-		
-		HttpClientUtil.post("apps/gzbx/pj", map, new RequestCallBack<String>() {
+
+		com.dk.mp.core.http.HttpUtil.getInstance().postJsonObjectRequest("apps/gzbx/pj", map, new HttpListener<JSONObject>() {
 			@Override
-			public void onFailure(com.lidroid.xutils.exception.HttpException arg0, String arg1) {
+			public void onError(VolleyError error) {
 				hideProgressDialog();
 				showMessage("提交失败，请稍后再试");
 				ok.setEnabled(true);
 			}
 
 			@Override
-			public void onSuccess(ResponseInfo<String> arg0) {
+			public void onSuccess(JSONObject arg0) {
 				hideProgressDialog();
 				ok.setEnabled(true);
 				Result result = HttpUtil.getResult(arg0);
 				if(result.getCode() == 200 && Boolean.parseBoolean(String.valueOf(result.getData()))){
 					showMessage(result.getMsg());
+					BroadcastUtil.sendBroadcast(mContext,"gzbxpl");
 					finish();
 				}else{
 					showMessage(result.getMsg());

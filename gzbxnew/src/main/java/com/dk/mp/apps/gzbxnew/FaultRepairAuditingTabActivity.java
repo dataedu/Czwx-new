@@ -2,8 +2,13 @@ package com.dk.mp.apps.gzbxnew;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 
+import com.dk.mp.core.adapter.MyFragmentPagerAdapter;
+import com.dk.mp.core.ui.BaseFragment;
+import com.dk.mp.core.ui.MyActivity;
 import com.dk.mp.core.view.tab.MyTabActivity;
+import com.dk.mp.core.widget.MyViewpager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,34 +18,60 @@ import java.util.List;
  * @author admin
  *
  */
-public class FaultRepairAuditingTabActivity extends MyTabActivity{
+public class FaultRepairAuditingTabActivity extends MyActivity {
+
+	TabLayout mTabLayout;
+	MyViewpager mViewpager;
+	@Override
+	protected int getLayoutID() {
+		return R.layout.gzbx_pl_tab;
+	}
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setTitle("故障报修",true);
+	protected void initialize() {
+		super.initialize();
+		setTitle("报修审核");
+		mTabLayout = (TabLayout) findViewById(R.id.id_stickynavlayout_indicator);
+		mViewpager = (MyViewpager) findViewById(R.id.id_stickynavlayout_viewpager);
 		initData();
 	}
 	//报修申请
 	public void initData(){
-		List<String> tabs = new ArrayList<String>();
-		List<Intent> intents = new ArrayList<Intent>();
-		
-		Intent intent = new Intent(this,FaultRepairCommentOnActivity.class);
-		intent.putExtra("pjzt", "");
-		intent.putExtra("shzt", "SH");
-		intent.putExtra("jklx", "sh");
-		intents.add(intent);
-		tabs.add("待办");
-		
-		Intent intent2 = new Intent(this,FaultRepairCommentOnActivity.class);
-		intent2.putExtra("pjzt", "");
-		intent2.putExtra("shzt", "YB");
-		intent2.putExtra("jklx", "sh");
-		intent2.putExtra("category", "2");
-		intents.add(intent2);
-		tabs.add("已办");
-		
-		setTabs(tabs, intents);
+		List<String> titles = new ArrayList<>();
+		titles.add("待办");
+		titles.add("已办");
+
+		for(int i=0;i<titles.size();i++){
+			mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(i)));
+		}
+
+		List<BaseFragment> fragments = new ArrayList<>();
+
+
+		Bundle args = new Bundle();
+		args.putString("pjzt", "");
+		args.putString("shzt", "SH");
+		args.putString("jklx", "sh");
+		FaultRepairComment pageFragment = new FaultRepairComment();
+		pageFragment.setArguments(args);
+
+		Bundle args2 = new Bundle();
+		args2.putString("pjzt", "");
+		args2.putString("shzt", "YB");
+		args2.putString("jklx", "sh");
+		args2.putString("category", "2");
+		FaultRepairComment pageFragment2 = new FaultRepairComment();
+		pageFragment2.setArguments(args2);
+
+
+		fragments.add(pageFragment);
+		fragments.add(pageFragment2);
+
+		MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),fragments,titles);
+		mViewpager.setOffscreenPageLimit ( fragments.size ( ) );
+		mViewpager.setAdapter(adapter);
+		mTabLayout.setupWithViewPager(mViewpager);
+
+
 	}
 }

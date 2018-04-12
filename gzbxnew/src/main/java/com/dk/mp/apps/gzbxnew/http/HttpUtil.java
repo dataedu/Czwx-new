@@ -25,13 +25,12 @@ public class HttpUtil {
 	
 	/**
 	 * 获取故障报修用户角色
-	 * @param responseInfo
+	 * @param json
 	 * @return
 	 */
-	public static GzbxRole getRole(ResponseInfo<String> responseInfo) {
+	public static GzbxRole getRole(JSONObject json) {
 		GzbxRole role = null;
 		try {
-			JSONObject json = HttpClientUtil.getJSONObject(responseInfo);
 			if (json != null && json.getInt("code") == 200) {
 				role = gson.fromJson(json.getJSONObject("data").toString(), GzbxRole.class);
 			}
@@ -41,11 +40,10 @@ public class HttpUtil {
 		return role;
 	}
 	
-	public static PageMsg getList(ResponseInfo<String> responseInfo) {
+	public static PageMsg getList(JSONObject json) {
 		PageMsg page = new PageMsg();
 		List<Gzbx> mList = new ArrayList<Gzbx>();
 		try {
-			JSONObject json = HttpClientUtil.getJSONObject(responseInfo);
 			if (json != null && json.getInt("code") == 200) {
 				page.setTotalPages(json.getJSONObject("data").getInt("totalPages"));
 				JSONArray array = json.getJSONObject("data").getJSONArray("list");
@@ -60,13 +58,12 @@ public class HttpUtil {
 	
 	/**
 	 * 获取故障报修操作详情
-	 * @param responseInfo
+	 * @param json
 	 * @return
 	 */
-	public static GzbxDetail getDetail(ResponseInfo<String> responseInfo) {
+	public static GzbxDetail getDetail(JSONObject json) {
 		GzbxDetail role = null;
 		try {
-			JSONObject json = HttpClientUtil.getJSONObject(responseInfo);
 			if (json != null && json.getInt("code") == 200) {
 				role = gson.fromJson(json.getJSONObject("data").toString(), GzbxDetail.class);
 			}
@@ -78,13 +75,12 @@ public class HttpUtil {
 	
 	/**
 	 * 获取故障报修操作详情
-	 * @param responseInfo
+	 * @param json
 	 * @return
 	 */
-	public static Result getResult(ResponseInfo<String> responseInfo) {
+	public static Result getResult(JSONObject json) {
 		Result role = null;
 		try {
-			JSONObject json = HttpClientUtil.getJSONObject(responseInfo);
 				role = gson.fromJson(json.toString(), Result.class);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -94,13 +90,12 @@ public class HttpUtil {
 	
 	/**
 	 * 获取故障报修--报修类型
-	 * @param responseInfo
+	 * @param json
 	 * @return
 	 */
-	public static List<Bxlx> getBxlxs(ResponseInfo<String> responseInfo) {
+	public static List<Bxlx> getBxlxs(JSONObject json) {
 		List<Bxlx> bxlxs = new ArrayList<Bxlx>();
 		try {
-			JSONObject json = HttpClientUtil.getJSONObject(responseInfo);
 			if (json != null && json.getInt("code") == 200) {
 				JSONArray array = json.getJSONArray("data");
 				bxlxs = gson.fromJson(array.toString(), new TypeToken<ArrayList<Bxlx>>(){}.getType());

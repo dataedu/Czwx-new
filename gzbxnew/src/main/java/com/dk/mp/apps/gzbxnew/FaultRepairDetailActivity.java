@@ -5,13 +5,17 @@ import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
 import com.dk.mp.apps.gzbxnew.entity.Gzbx;
 import com.dk.mp.apps.gzbxnew.entity.GzbxDetail;
 import com.dk.mp.apps.gzbxnew.http.HttpUtil;
 import com.dk.mp.core.http.HttpClientUtil;
+import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,15 +36,11 @@ public class FaultRepairDetailActivity extends MyActivity {
 		return R.layout.fault_repair_detail;
 	}
 
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.fault_repair_detail);
-//		setTitle("故障报修");
-//		gzbx = (Gzbx) getIntent().getSerializableExtra("gzbxs");
-//		initView();
-//		getDetail();
-//	}
+	@Override
+	protected void initialize() {
+		super.initialize();
+		initView();
+	}
 
 	public void initView(){
 		setTitle("故障报修");
@@ -83,11 +83,12 @@ public class FaultRepairDetailActivity extends MyActivity {
 	 */
 	public void getDetail(){
 		showProgressDialog();
-		Map<String,String> map = new HashMap<String,String>();
+		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("id", gzbx.getId());
-		HttpClientUtil.post("apps/gzbx/getDetail", map, new RequestCallBack<String>() {
+
+		com.dk.mp.core.http.HttpUtil.getInstance().postJsonObjectRequest("apps/gzbx/getDetail", map, new HttpListener<JSONObject>() {
 			@Override
-			public void onSuccess(ResponseInfo<String> arg0) {
+			public void onSuccess(JSONObject arg0) {
 				hideProgressDialog();
 				detail = HttpUtil.getDetail(arg0);
 				if(detail != null)
@@ -97,7 +98,7 @@ public class FaultRepairDetailActivity extends MyActivity {
 			}
 			
 			@Override
-			public void onFailure(com.lidroid.xutils.exception.HttpException arg0, String arg1) {
+			public void onError(VolleyError error) {
 				hideProgressDialog();
 				showMessage(getString(R.string.data_fail));
 			}
