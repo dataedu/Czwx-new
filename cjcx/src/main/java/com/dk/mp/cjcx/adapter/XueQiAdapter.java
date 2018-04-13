@@ -8,21 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dk.mp.cjcx.BaiJiListActivity;
 import com.dk.mp.cjcx.R;
-import com.dk.mp.cjcx.ScoreInquiryDetailActivity;
+import com.dk.mp.cjcx.CjDetailActivity;
 import com.dk.mp.cjcx.entity.ScoreInquiry;
+import com.dk.mp.core.entity.LoginMsg;
+import com.dk.mp.core.entity.User;
+import com.dk.mp.core.ui.HttpWebActivity;
+import com.dk.mp.core.util.CoreSharedPreferencesHelper;
 
 import java.util.List;
 
 /**
  * 作者：janabo on 2017/10/26 15:17
  */
-public class ScoreInquiryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class XueQiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     Context mContext;
     List<ScoreInquiry> mData;
     LayoutInflater inflater;
 
-    public ScoreInquiryAdapter(Context mContext,List mData) {
+    public XueQiAdapter(Context mContext, List mData) {
         this.mContext = mContext;
         this.mData = mData;
         inflater = LayoutInflater.from(mContext);
@@ -54,10 +59,20 @@ public class ScoreInquiryAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                Intent intent = new Intent(mContext,ScoreInquiryDetailActivity.class);//跳转工资详情
-                ScoreInquiry si = mData.get(getLayoutPosition());
-                intent.putExtra("xqid",si.getId());
-                mContext.startActivity(intent);
+                    User loginMsg = new CoreSharedPreferencesHelper(mContext).getUser();
+                    if(loginMsg!=null&&loginMsg.getRole()!=null&&loginMsg.getRole().contains("teacher")){
+                        Intent intent = new Intent(mContext,BaiJiListActivity.class);//跳转工资详情
+                        ScoreInquiry si = mData.get(getLayoutPosition());
+                        intent.putExtra("xqid",si.getId());
+                        intent.putExtra("title",si.getName());
+                        mContext.startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(mContext,HttpWebActivity.class);//跳转工资详情
+                        ScoreInquiry si = mData.get(getLayoutPosition());
+                        intent.putExtra("url","apps/cjcx/detail?xueqiId="+si.getId());
+                        intent.putExtra("title",si.getName());
+                        mContext.startActivity(intent);
+                    }
                 }
             });
         }

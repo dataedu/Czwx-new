@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /**
  * 作者：janabo on 2017/10/26 16:00
  */
-public class ScoreInquiryDetailActivity extends MyActivity {
+public class CjDetailActivity extends MyActivity {
     private OADetailView content;
     private ErrorLayout mError;
     private String xqid;
@@ -39,7 +39,7 @@ public class ScoreInquiryDetailActivity extends MyActivity {
     }
 
     public void getDetail() {
-        HttpUtil.getInstance().postJsonObjectRequest("apps/cjcx/detail?xueqiId="+xqid, null, new HttpListener<JSONObject>() {
+        HttpUtil.getInstance().postJsonObjectRequest("apps/cjcx/detail?xueqiId="+xqid+"&userId="+getIntent().getStringExtra("userId"), null, new HttpListener<JSONObject>() {
             @Override
             public void onSuccess(JSONObject result)  {
                 try {

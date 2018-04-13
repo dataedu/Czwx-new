@@ -5,7 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
-import com.dk.mp.cjcx.adapter.ScoreInquiryAdapter;
+import com.dk.mp.cjcx.adapter.XueQiAdapter;
 import com.dk.mp.cjcx.entity.ScoreInquiry;
 import com.dk.mp.core.entity.LoginMsg;
 import com.dk.mp.core.http.HttpUtil;
@@ -23,14 +23,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 成绩查询
+ * 成绩查询学期列表
  * 作者：janabo on 2017/10/26 15:04
  */
-public class ScoreInquiryListActivity extends MyActivity {
+public class XueQiListActivity extends MyActivity {
     private ErrorLayout mError;
     private RecyclerView mList;
     private List<ScoreInquiry> mData = new ArrayList<>();
-    private ScoreInquiryAdapter mAdapter;
+    private XueQiAdapter mAdapter;
 
     @Override
     protected int getLayoutID() {
@@ -45,7 +45,7 @@ public class ScoreInquiryListActivity extends MyActivity {
         mList = (RecyclerView) findViewById(R.id.mListView);
         mList.setHasFixedSize ( true );
         mList.setLayoutManager ( new LinearLayoutManager( mContext ) );
-        mAdapter = new ScoreInquiryAdapter(mContext,mData);
+        mAdapter = new XueQiAdapter(mContext,mData);
         mList.setAdapter(mAdapter);
         mList.addItemDecoration(new RecycleViewDivider(mContext, LinearLayoutManager.HORIZONTAL, DeviceUtil.dip2px(mContext,0.8f), Color.rgb(229, 229, 229)));
     }
