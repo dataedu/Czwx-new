@@ -13,8 +13,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.dk.mp.jyxx.ui.JyxxDetailActivity"
+        <activity android:name="com.dk.mp.jyxx.ui.JyxxSearchActivity"
             android:screenOrientation="portrait">
+
         </activity>
     </application>
 

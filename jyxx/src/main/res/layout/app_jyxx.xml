@@ -7,6 +7,28 @@
 
     <include layout="@layout/core_title_back"></include>
 
+    <LinearLayout
+        android:id="@+id/ss"
+        android:layout_margin="10dip"
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/white">
+
+        <ImageView
+           android:src="@drawable/gray_query_small"
+            android:layout_width="20dip"
+            android:layout_height="20dip" />
+
+        <TextView
+            android:text="搜索"
+            android:paddingLeft="10dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
     <com.dk.mp.core.widget.ErrorLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"

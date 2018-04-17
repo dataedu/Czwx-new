@@ -1,21 +1,25 @@
 package com.dk.mp.jyxx.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
+import com.dk.mp.core.dialog.MsgDialog;
+import com.dk.mp.core.entity.Jbxx;
 import com.dk.mp.core.entity.PageMsg;
 import com.dk.mp.core.http.HttpUtil;
 import com.dk.mp.core.http.request.HttpListener;
@@ -23,7 +27,9 @@ import com.dk.mp.core.ui.HttpWebActivity;
 import com.dk.mp.core.ui.MyActivity;
 import com.dk.mp.core.util.AdapterInterface;
 import com.dk.mp.core.util.DeviceUtil;
+import com.dk.mp.core.util.Logger;
 import com.dk.mp.core.util.SnackBarUtil;
+import com.dk.mp.core.util.StringUtils;
 import com.dk.mp.core.view.MyListView;
 import com.dk.mp.core.view.RecycleViewDivider;
 import com.dk.mp.core.widget.ErrorLayout;
@@ -31,31 +37,34 @@ import com.dk.mp.jyxx.R;
 import com.dk.mp.jyxx.entity.Jyxx;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.Serializable;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 学校新闻列表
- * 作者：janabo on 2016/12/19 10:08
+ * 通讯录搜索
+ * 作者：janabo on 2016/12/26 14:46
  */
-public class JyxxListActivity extends MyActivity implements View.OnClickListener{
+public class JyxxSearchActivity extends MyActivity implements View.OnClickListener{
     ErrorLayout mError;
     private MyListView myListView;
     private List<Jyxx> list = new ArrayList<Jyxx>();
-
+    private EditText mKeywords;//搜索关键字
     @Override
     protected int getLayoutID() {
-        return R.layout.app_jyxx;
+        return R.layout.app_jyxx_search;
     }
 
     @Override
     protected void initialize() {
         super.initialize();
-        setTitle(getIntent().getStringExtra("title"));
 //        mRealmHelper = new JyxxHelper(this);
+
+        mKeywords = (EditText) findViewById(R.id.search_Keywords);
         myListView = (MyListView) findViewById(R.id.newslist);
         mError = (ErrorLayout) findViewById(R.id.error_layout);
         mError.setOnLayoutClickListener(this);
@@ -63,11 +72,32 @@ public class JyxxListActivity extends MyActivity implements View.OnClickListener
         myListView.setLayoutManager(manager);
         myListView.addItemDecoration(new RecycleViewDivider(this, GridLayoutManager.HORIZONTAL, 1, Color.rgb(201, 201, 201)));//添加分割线
 
-        findViewById(R.id.ss).setOnClickListener(new View.OnClickListener() {
+        mKeywords.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(JyxxListActivity.this, JyxxSearchActivity.class);
-                startActivity(intent);
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((actionId == 0 || actionId == 3) && event != null) {
+                    final String keywords = mKeywords.getText().toString();
+                    Logger.info(keywords);
+                    hideSoftInput();
+                    if (StringUtils.isNotEmpty(keywords)) {
+                        if(DeviceUtil.checkNet()){//判断是否有网络
+                            mError.setErrorType(ErrorLayout.HIDE_LAYOUT);
+                            getList();
+                            list.clear();
+                        }else{
+                            mError.setErrorType(ErrorLayout.NETWORK_ERROR);
+                        }
+                    } else {
+                        MsgDialog.show(JyxxSearchActivity.this,"请输入关键字");
+                    }
+                }else if(actionId == 3 && event == null){
+                    final String keywords = mKeywords.getText().toString();
+                    if (!StringUtils.isNotEmpty(keywords)) {
+                        hideSoftInput();
+                        MsgDialog.show(JyxxSearchActivity.this,"请输入关键字");
+                    }
+                }
+                return false;
             }
         });
 
@@ -75,19 +105,19 @@ public class JyxxListActivity extends MyActivity implements View.OnClickListener
             @Override
             public RecyclerView.ViewHolder setItemView(ViewGroup parent, int viewType) {
                 View view =  LayoutInflater.from(mContext).inflate(R.layout.app_jyxx_item, parent, false);// 设置要转化的layout文件
-                return new MyView(view);
+                return new JyxxSearchActivity.MyView(view);
             }
 
             @Override
             public void setItemValue(RecyclerView.ViewHolder holder, int position) {
-                ((MyView)holder).title.setText(list.get(position).getName());
-                ((MyView)holder).time.setText(list.get(position).getPublishTime());
+                ((JyxxSearchActivity.MyView)holder).title.setText(list.get(position).getName());
+                ((JyxxSearchActivity.MyView)holder).time.setText(list.get(position).getPublishTime());
 
                 if (list.get(position).getImage() == null ){
-                    ((MyView)holder).image.setVisibility(View.GONE);
+                    ((JyxxSearchActivity.MyView)holder).image.setVisibility(View.GONE);
                 } else {
-                    ((MyView)holder).image.setVisibility(View.VISIBLE);
-                    Glide.with(mContext).load(list.get(position).getImage()).fitCenter().into(((MyView)holder).image);
+                    ((JyxxSearchActivity.MyView)holder).image.setVisibility(View.VISIBLE);
+                    Glide.with(mContext).load(list.get(position).getImage()).fitCenter().into(((JyxxSearchActivity.MyView)holder).image);
                 }
             }
 
@@ -96,21 +126,30 @@ public class JyxxListActivity extends MyActivity implements View.OnClickListener
                 getData();
             }
         });
-        getData();
+
     }
 
     public void getData(){
         if(DeviceUtil.checkNet()) {
             getList();
-        }else{
-//            getNewsLocal(1,myListView.pageNo);
         }
     }
+
+    /**
+     * 隐藏软键盘
+     */
+    public void hideSoftInput(){
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        // 隐藏软键盘
+        imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
+    }
+
 
     public void getList(){
         myListView.startRefresh();
         Map<String,Object> map = new HashMap<>();
         map.put("pageNo",myListView.pageNo);
+        map.put("key",mKeywords.getText().toString());
         HttpUtil.getInstance().gsonRequest(new TypeToken<PageMsg<Jyxx>>(){}, "apps/jyxx/list", map, new HttpListener<PageMsg<Jyxx>>() {
             @Override
             public void onSuccess(PageMsg<Jyxx> result) {
@@ -169,29 +208,5 @@ public class JyxxListActivity extends MyActivity implements View.OnClickListener
             });
         }
     }
-
-//    /**
-//     * 本地获取数据
-//     * @param par  1 无网络  2，获取数据失败
-//     */
-//    public void getNewsLocal(int par,int pageNo){
-//        mError.setErrorType(ErrorLayout.HIDE_LAYOUT);
-//        List<Jyxx> newses = mRealmHelper.queryAllNews();
-//        if(newses != null && newses.size()>0){
-//            SnackBarUtil.showShort(myListView, R.string.net_no2);
-//            list.addAll(newses);
-//            myListView.finish(1,1);
-//        }else{
-//            if(par == 1 && pageNo == 1) {
-//                mError.setErrorType(ErrorLayout.NETWORK_ERROR);
-//            }else if(par ==2 && pageNo == 1){
-//                mError.setErrorType(ErrorLayout.DATAFAIL);
-//            }else if(par == 1 && pageNo != 1){
-//                SnackBarUtil.showShort(myListView, R.string.net_no2);
-//            }else if(par == 2 && pageNo != 1){
-//                SnackBarUtil.showShort(myListView, R.string.data_fail);
-//            }
-//        }
-//    }
 
 }
