@@ -5,14 +5,29 @@ package com.dk.mp.sxxj.entity;
  */
 
 public class Detail {
-
 	private String nr;
 	private String fjId;
 	private String fjName;
 	private String typeName;
 	private String typeId;
+	private String downloadUrl;
+	private String downloadType;
 
+	public String getDownloadUrl() {
+		return downloadUrl;
+	}
 
+	public void setDownloadUrl(String downloadUrl) {
+		this.downloadUrl = downloadUrl;
+	}
+
+	public String getDownloadType() {
+		return downloadType;
+	}
+
+	public void setDownloadType(String downloadType) {
+		this.downloadType = downloadType;
+	}
 
 	public String getTypeName() {
 		return typeName;
@@ -53,7 +68,6 @@ public class Detail {
 	public void setFjName(String fjName) {
 		this.fjName = fjName;
 	}
-
 
 
 }

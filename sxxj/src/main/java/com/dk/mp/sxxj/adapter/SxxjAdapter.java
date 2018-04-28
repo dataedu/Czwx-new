@@ -79,6 +79,23 @@ public class SxxjAdapter extends BaseAdapter {
         mv.zt.setText(list.get(position).getStatus());
         mv.lx.setText(list.get(position).getType());
 
+        if("草稿".equals(list.get(position).getStatus())){
+            mv.zt.setTextColor(context.getResources().getColor(R.color.txt_cg));
+        }else if("审核通过".equals(list.get(position).getStatus())){
+            mv.zt.setTextColor(context.getResources().getColor(R.color.txt_tg));
+        }else if("审核不通过".equals(list.get(position).getStatus())){
+            mv.zt.setTextColor(context.getResources().getColor(R.color.txt_btg));
+        }else{
+            mv.zt.setTextColor(context.getResources().getColor(R.color.txt_shenhe));
+        }
+
+        if(list.get(position).getType().contains("实习")){
+            mv.img.setImageResource(R.drawable.shi);
+        }else if(list.get(position).getType().contains("年终")){
+            mv.img.setImageResource(R.drawable.nian);
+        }else{
+            mv.img.setImageResource(R.drawable.yue);
+        }
 
 //		convertView.setTag(examInfo.getIdDepart());
         return convertView;

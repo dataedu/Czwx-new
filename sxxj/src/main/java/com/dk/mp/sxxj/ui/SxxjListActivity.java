@@ -1,5 +1,7 @@
 package com.dk.mp.sxxj.ui;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.HttpWebActivity;
 import com.dk.mp.core.ui.MyActivity;
 import com.dk.mp.core.util.AdapterInterface;
+import com.dk.mp.core.util.BroadcastUtil;
 import com.dk.mp.core.util.DeviceUtil;
 import com.dk.mp.core.util.SnackBarUtil;
 import com.dk.mp.core.view.MyListView;
@@ -78,14 +81,15 @@ public class SxxjListActivity extends MyActivity {
                     intent.putExtra("id",list.get(position).getId());
                     intent.putExtra("type",list.get(position).getType());
                     Bundle bundle = new Bundle();
-                    if(type.size()>0){
-                        type.remove(0);
+                    if(type.contains("所有")){
+                        type.remove("所有");
                     }
                     bundle.putSerializable("types", type);
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }else{
                     Intent intent = new Intent(SxxjListActivity.this, HttpWebActivity.class);
+                    intent.putExtra("title",list.get(position).getDate());
                     intent.putExtra("url","apps/sxxj/detail?id="+list.get(position).getId());
                     startActivity(intent);
                 }
@@ -136,12 +140,40 @@ public class SxxjListActivity extends MyActivity {
           }
       });
 
+
+        findViewById(R.id.save).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SxxjListActivity.this, SxxjSaveActivity.class);
+                intent.putExtra("title","填写小结");
+                Bundle bundle = new Bundle();
+                if(type.contains("所有")){
+                    type.remove("所有");
+                }
+                bundle.putSerializable("types", type);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
+
         if(DeviceUtil.checkNet()) {
             getList();
         }else{
             mError.setErrorType(ErrorLayout.NETWORK_ERROR);
         }
+
+
+        BroadcastUtil.registerReceiver(this,receiver,"sxxj_refresh");
     }
+
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("sxxj_refresh")) {
+                getList();
+            }
+        }
+    };
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
