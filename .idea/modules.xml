@@ -7,14 +7,17 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cjcx/cjcx.iml" filepath="$PROJECT_DIR$/cjcx/cjcx.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dltj/dltj.iml" filepath="$PROJECT_DIR$/dltj/dltj.iml" />
       <module fileurl="file://$PROJECT_DIR$/gzbxnew/gzbxnew.iml" filepath="$PROJECT_DIR$/gzbxnew/gzbxnew.iml" />
       <module fileurl="file://$PROJECT_DIR$/gzcx/gzcx.iml" filepath="$PROJECT_DIR$/gzcx/gzcx.iml" />
       <module fileurl="file://$PROJECT_DIR$/hy/hy.iml" filepath="$PROJECT_DIR$/hy/hy.iml" />
       <module fileurl="file://$PROJECT_DIR$/jfcx/jfcx.iml" filepath="$PROJECT_DIR$/jfcx/jfcx.iml" />
       <module fileurl="file://$PROJECT_DIR$/jyxx/jyxx.iml" filepath="$PROJECT_DIR$/jyxx/jyxx.iml" />
       <module fileurl="file://$PROJECT_DIR$/kcb/kcb.iml" filepath="$PROJECT_DIR$/kcb/kcb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ksap/ksap.iml" filepath="$PROJECT_DIR$/ksap/ksap.iml" />
       <module fileurl="file://$PROJECT_DIR$/main/main.iml" filepath="$PROJECT_DIR$/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/pjpy/pjpy.iml" filepath="$PROJECT_DIR$/pjpy/pjpy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sxxj/sxxj.iml" filepath="$PROJECT_DIR$/sxxj/sxxj.iml" />
       <module fileurl="file://$PROJECT_DIR$/tsg/tsg.iml" filepath="$PROJECT_DIR$/tsg/tsg.iml" />
       <module fileurl="file://$PROJECT_DIR$/txl/txl.iml" filepath="$PROJECT_DIR$/txl/txl.iml" />
       <module fileurl="file://$PROJECT_DIR$/tzgg/tzgg.iml" filepath="$PROJECT_DIR$/tzgg/tzgg.iml" />

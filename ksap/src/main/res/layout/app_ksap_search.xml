@@ -56,17 +56,22 @@
         android:orientation="vertical" >
 
         <com.dk.mp.core.widget.ErrorLayout
+            android:visibility="gone"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:id="@+id/error_layout"
             android:gravity="center_horizontal"/>
 
-        <com.dk.mp.core.view.MyListView
+        <com.dk.mp.core.view.listview.XListView
             android:id="@+id/newslist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000"
+            android:dividerHeight="0dip"
+            android:listSelector="#00000000"
             android:scrollbars="none">
-        </com.dk.mp.core.view.MyListView>
+        </com.dk.mp.core.view.listview.XListView>
     </LinearLayout>
 
 </LinearLayout>

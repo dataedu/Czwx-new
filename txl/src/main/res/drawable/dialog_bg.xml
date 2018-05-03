@@ -11,7 +11,7 @@
         <!-- padding：Button里面的文字与Button边界的间隔 -->
         <padding android:bottom="0px" android:left="0px" android:right="0px" android:top="0px" />
 
-        <stroke android:width="0px" android:color="#c9c9c9" />
+        <stroke android:width="1px" android:color="#c9c9c9" />
     </shape>
     </item>
 

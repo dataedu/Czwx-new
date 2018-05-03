@@ -18,7 +18,10 @@
             android:screenOrientation="portrait">
         </activity>
 
-
+        <activity
+            android:name="com.dk.mp.ksap.ui.KsapDetailActivity"
+            android:screenOrientation="portrait">
+        </activity>
 
     </application>
 

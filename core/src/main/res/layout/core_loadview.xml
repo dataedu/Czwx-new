@@ -13,7 +13,7 @@
         android:layout_marginTop="90dp"/>
 
     <ImageView
-        android:id="@+id/zwsj_icon"
+        android:id="@+id/loadview_icon"
         android:layout_width="70dp"
         android:layout_height="73dp"
         android:src="@mipmap/nodata_n"
@@ -22,7 +22,7 @@
         android:layout_marginTop="90dp"/>
 
     <TextView
-        android:id="@+id/zwsj_text"
+        android:id="@+id/loadview_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dip"

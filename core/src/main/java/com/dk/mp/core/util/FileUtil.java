@@ -1,8 +1,15 @@
 package com.dk.mp.core.util;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
+
+import com.dk.mp.core.dialog.MsgDialog;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -76,6 +83,52 @@ public class FileUtil {
         } catch (Exception e) {
             return false;
         }
+    }
+
+
+    /**
+     * 调用系统功能打开文件.
+
+     *            文件路径
+     * @return Intent
+     */
+    public static void openFileByUrl(final Context mContext, String url,
+                                     String fileName) {
+//        ProgressDialogUtil.getIntence(mContext).onLoading("");
+//
+//        final String path =  "/sdcard/" + url.hashCode()+ "."
+//                + fileName.substring(fileName.lastIndexOf(".") + 1,
+//                fileName.length() - 1).toLowerCase();
+//
+//        new HttpUtils().download(url, path, new RequestCallBack<File>() {
+//
+//            @Override
+//            public void onFailure(HttpException arg0, String arg1) {
+//                arg0.printStackTrace();
+//                MsgDialog.show(mContext, arg0.getMessage());
+//                ProgressDialogUtil.getIntence(mContext).dismissDialog();
+//
+//            }
+//
+//            @Override
+//            public void onSuccess(ResponseInfo<File> arg0) {
+//                Intent intent = openFile(path);
+//                try {
+//                    mContext.startActivity(intent);
+//                } catch (Exception e) { // 当系统没有携带文件打开软件，提示
+//                    MsgDialog.show(mContext, "无法打开该格式文件!");
+//                    e.printStackTrace();
+//                }
+//                ProgressDialogUtil.getIntence(mContext).dismissDialog();
+//
+//            }
+//        });
+
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        Uri content_url = Uri.parse(url);
+        intent.setData(content_url);
+        mContext.startActivity(intent);
     }
 
     /**

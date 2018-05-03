@@ -46,8 +46,8 @@ public class ErrorLayout extends LinearLayout implements
     private void init() {
         View view = View.inflate(context, R.layout.core_loadview, null);
         loadview = (LoadingView) view.findViewById(R.id.loadview);
-        img = (ImageView) view.findViewById(R.id.zwsj_icon);
-        tv = (TextView) view.findViewById(R.id.zwsj_text);
+        img = (ImageView) view.findViewById(R.id.loadview_icon);
+        tv = (TextView) view.findViewById(R.id.loadview_text);
         img.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

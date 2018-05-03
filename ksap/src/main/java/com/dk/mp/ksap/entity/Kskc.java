@@ -1,10 +1,12 @@
 package com.dk.mp.ksap.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by abc on 2018-4-17.
  */
 
-public class Kskc {
+public class Kskc implements Serializable {
 
    private String  kssj;//考试时间"
    private String   kcmc;//课程名称","
@@ -51,4 +53,7 @@ public class Kskc {
    public void setJkls(String jkls) {
       this.jkls = jkls;
    }
+
+
+
 }

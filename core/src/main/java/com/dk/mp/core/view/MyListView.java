@@ -35,7 +35,7 @@ public class MyListView extends SwipeRefreshLayout {
     private LinearLayout zwsj;
     private ImageView zwsj_icon;
     private TextView zwsj_text;
-    private boolean showprograss = true;
+    private boolean showprograss = false;
     private MyAdapter adapter;
     private boolean isLoadingMore = false;
     private boolean isEnd = false;
@@ -156,6 +156,12 @@ public class MyListView extends SwipeRefreshLayout {
         loadingMore(false);
         stopRefresh(true);
     }
+
+
+    public void hideRefresh(){
+        zwsj.setVisibility(View.GONE);
+    }
+
 
     public void finish(int totalPages,int currentPage){
         adapter.notifyDataSetChanged();

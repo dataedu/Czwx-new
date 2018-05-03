@@ -1,9 +1,12 @@
 package com.dk.mp.ksap.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -11,6 +14,8 @@ import android.widget.TextView;
 
 import com.dk.mp.ksap.R;
 import com.dk.mp.ksap.entity.Ksap;
+import com.dk.mp.ksap.ui.KsapDetailActivity;
+import com.dk.mp.ksap.widget.ChildLiistView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +65,7 @@ public class KsapAdapter  extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         final MyView mv;
         if (convertView == null) {
             mv = new MyView();
@@ -72,19 +77,20 @@ public class KsapAdapter  extends BaseAdapter {
         }
         mv.icon = (ImageView) convertView.findViewById(R.id.icon);// 取得实例
         mv.ksrq = (TextView) convertView.findViewById(R.id.ksrq);// 取得实例
-        mv.kclist = (LinearLayout) convertView.findViewById(R.id.kclist);// 取得实例
+        mv.kclist = (ChildLiistView) convertView.findViewById(R.id.kclist);// 取得实例
         mv.ksrq.setText(list.get(position).getDate());
+        mv.kclist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
+                Intent intent = new Intent(context, KsapDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("kskc", list.get(position).getKslist().get(index));
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
+        mv.kclist.setAdapter(new ItemAdapter(context,list.get(position).getKslist()));
 
-        for(int i=0;i<list.get(position).getList().size();i++){
-            View  subview = lif.inflate(R.layout.app_kskc_item, null);
-            TextView kssj= (TextView) subview.findViewById(R.id.kssj);// 取得实例
-            TextView kcmc= (TextView) subview.findViewById(R.id.kcmc);// 取得实例
-            TextView ksdd= (TextView) subview.findViewById(R.id.ksdd);// 取得实例
-            kssj.setText(list.get(position).getList().get(i).getKssj());
-            kcmc.setText(list.get(position).getList().get(i).getKcmc());
-            ksdd.setText(list.get(position).getList().get(i).getKsdd());
-            mv.kclist.addView(subview);
-        }
 
 
 
@@ -100,6 +106,6 @@ public class KsapAdapter  extends BaseAdapter {
     private static class MyView {
         private ImageView icon;
         private TextView ksrq;
-        private LinearLayout kclist;
+        private ChildLiistView kclist;
     }
 }

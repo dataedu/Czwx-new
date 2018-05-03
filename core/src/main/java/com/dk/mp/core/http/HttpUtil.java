@@ -139,7 +139,7 @@ public class HttpUtil {
      * @param url
      * @return
      */
-    private static String getUrl(String url) {
+    public static String getUrl(String url) {
         if (url.startsWith("http://") || url.startsWith("https://")) {
             return url;
         } else {

@@ -111,10 +111,6 @@ import java.util.Map;
 	private void getRole(){
 		showProgressDialog();
 		Map<String,Object> map = new HashMap<String, Object>();
-
-
-
-
 		com.dk.mp.core.http.HttpUtil.getInstance().postJsonObjectRequest("apps/gzbx/role", map, new HttpListener<JSONObject>() {
 			@Override
 			public void onSuccess(JSONObject result) {

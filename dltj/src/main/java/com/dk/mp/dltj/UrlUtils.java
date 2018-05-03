@@ -13,7 +13,7 @@ public class UrlUtils {
 
 
     public static String getUrl(Context context, String type) {
-        String url="apps/dltj?type="+type;
+        String url="apps/dlxx/index?type="+type;
         String user="";
         LoginMsg loginMsg = new CoreSharedPreferencesHelper(context).getLoginMsg();
         if (loginMsg != null) {

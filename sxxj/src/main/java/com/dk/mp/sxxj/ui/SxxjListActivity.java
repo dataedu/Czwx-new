@@ -170,6 +170,7 @@ public class SxxjListActivity extends MyActivity {
     BroadcastReceiver receiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals("sxxj_refresh")) {
+                xjlx="";
                 getList();
             }
         }

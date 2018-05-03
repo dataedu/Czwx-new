@@ -3,6 +3,7 @@ package com.dk.mp.core.ui;
 import android.graphics.Bitmap;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -15,6 +16,7 @@ import com.dk.mp.core.entity.LoginMsg;
 import com.dk.mp.core.http.request.HttpRequest;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
 import com.dk.mp.core.util.DeviceUtil;
+import com.dk.mp.core.util.FileUtil;
 import com.dk.mp.core.util.Logger;
 import com.dk.mp.core.widget.ErrorLayout;
 
@@ -79,6 +81,13 @@ public class HttpWebActivity extends MyActivity {
         settings.setDatabaseEnabled ( true );
         settings.setCacheMode ( WebSettings.LOAD_NO_CACHE );
         settings.setJavaScriptEnabled ( true );    //启用JS脚本
+        mWebView.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String s1, String s2, String s3, long l) {
+//                // 监听下载功能，当用户点击下载链接的时候，直接调用系统的浏览器来下载
+                FileUtil.openFileByUrl(mContext, url, s2);
+            }
+        });
     }
 
 
@@ -157,11 +166,7 @@ public class HttpWebActivity extends MyActivity {
 
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        mWebView.onPause();
-    }
+
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {

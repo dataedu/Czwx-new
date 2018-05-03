@@ -69,6 +69,7 @@ import com.dk.mp.core.util.Logger;
 import com.dk.mp.core.util.StringUtils;
 import com.dk.mp.core.util.TimeUtils;
 
+import com.dk.mp.core.util.encrypt.Base64Utils;
 import com.google.gson.Gson;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -678,7 +679,7 @@ public class FaultRepairAddActivity extends MyActivity {
 		LoginMsg loginMsg = new CoreSharedPreferencesHelper(mContext).getLoginMsg();
 		String mUrl = getReString(R.string.uploadUrlHq);
 		if(loginMsg != null) {//loginMsg.getUid()
-			mUrl +="/independent.service?.lm=bxgl-dwjk&.ms=view&action=fjscjk&.ir=true&type=bxsqAttachment&userId="+loginMsg.getUid()+"&password="+ loginMsg.getPsw() +"&ownerId="+uuid;
+			mUrl +="/independent.service?.lm=bxgl-dwjk&.ms=view&action=fjscjk&.ir=true&type=bxsqAttachment&userId="+loginMsg.getUid()+"&password="+ loginMsg.getEncpsw() +"&ownerId="+uuid;
 		}else{
 			mUrl +="/independent.service?.lm=bxgl-dwjk&.ms=view&action=fjscjk&.ir=true&type=bxsqAttachment&ownerId="+uuid;
 		}

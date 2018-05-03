@@ -9,6 +9,17 @@
             android:screenOrientation="portrait">
         </activity>
 
+
+        <activity android:name="com.dk.mp.core.widget.DatePickActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.dk.mp.core.widget.TextPickActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>

@@ -47,4 +47,7 @@ dependencies {
     implementation project(':ydyx')
     implementation project(':zslq')
     implementation project(':jyxx')
+    implementation project(':dltj')
+    implementation project(':ksap')
+    implementation project(':sxxj')
 }

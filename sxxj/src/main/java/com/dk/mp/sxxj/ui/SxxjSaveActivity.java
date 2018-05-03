@@ -1,20 +1,19 @@
 package com.dk.mp.sxxj.ui;
 
-import android.content.ContentValues;
+import android.Manifest;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
+import android.content.pm.PackageManager;
+
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.android.volley.VolleyError;
 import com.dk.mp.core.entity.LoginMsg;
@@ -32,10 +31,9 @@ import com.dk.mp.sxxj.R;
 import com.dk.mp.sxxj.adapter.AddImageAdapter;
 import com.dk.mp.sxxj.entity.Detail;
 import com.dk.mp.sxxj.entity.Type;
-import com.dk.mp.sxxj.widget.MyGridView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.leon.lfilepickerlibrary.LFilePicker;
+
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
@@ -49,32 +47,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import cn.qqtheme.framework.picker.FilePicker;
 
 
-import static com.dk.mp.core.util.ImageUtil.BASEPICPATH;
-
-/**
- * 学校新闻列表
- * 作者：janabo on 2016/12/19 10:08
- */
 public class SxxjSaveActivity extends MyActivity {
     private ListView myListView;
     LinearLayout xjlx_bg;
-    TextView xjlx,add;
-    Button tj,bc;
+    TextView xjlx, add;
+    Button tj, bc;
     EditText xjnr;
-    String id,xjlxId;
+    String id, xjlxId;
 
-    Detail detail=null;
+    Detail detail = null;
     AppCompatActivity context;
 
-    private final int EX_FILE_PICKER_RESULT = 0xfa01;
-    private String startDirectory = null;// 记忆上一次访问的文件目录路径
-
-
     private ArrayList<Type> type = new ArrayList<Type>();
-    public List<String> fjIds = new ArrayList<>();// 保存图片地址
-    public List<String> fjNames = new ArrayList<>();// 保存图片地址
+    public List<String> fjIds = new ArrayList<>();
+    public List<String> fjNames = new ArrayList<>();
 
     AddImageAdapter wImageAdapter;
 
@@ -87,12 +76,12 @@ public class SxxjSaveActivity extends MyActivity {
     protected void initialize() {
         super.initialize();
         setTitle(getIntent().getStringExtra("title"));
-        context=SxxjSaveActivity.this;
+        context = SxxjSaveActivity.this;
         type = (ArrayList<Type>) getIntent().getSerializableExtra("types");
 
-        id=getIntent().getStringExtra("id");
-        if(id==null){
-            id=UUID.randomUUID().toString();
+        id = getIntent().getStringExtra("id");
+        if (id == null) {
+            id = UUID.randomUUID().toString();
         }
         myListView = (ListView) findViewById(R.id.newslist);
         xjlx_bg = (LinearLayout) findViewById(R.id.xjlx_bg);
@@ -101,14 +90,13 @@ public class SxxjSaveActivity extends MyActivity {
         tj = (Button) findViewById(R.id.tj);
         bc = (Button) findViewById(R.id.bc);
         xjnr = (EditText) findViewById(R.id.xjnr);
-        if(StringUtils.isNotEmpty(getIntent().getStringExtra("type"))) {
+        if (StringUtils.isNotEmpty(getIntent().getStringExtra("type"))) {
             xjlx.setText(StringUtils.checkEmpty(getIntent().getStringExtra("type")));
-            xjlxId =StringUtils.checkEmpty(getIntent().getStringExtra("type"));
-        }else{
+            xjlxId = StringUtils.checkEmpty(getIntent().getStringExtra("type"));
+        } else {
             xjlx.setText("请选择");
         }
         getCg();
-
 
 
         bc.setOnClickListener(new View.OnClickListener() {
@@ -135,49 +123,51 @@ public class SxxjSaveActivity extends MyActivity {
         xjlx_bg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(type.size()>0){
+                if (type.size() > 0) {
                     Intent intent = new Intent(SxxjSaveActivity.this, TextPickActivity.class);
-                    String xjlxNames="";
-                    if( xjlxNames!=null){
-                        for(int i=0;i<type.size();i++){
-                            if(i==0){
-                                xjlxNames+=type.get(i).getName();
-                            }else{
-                                xjlxNames+=","+type.get(i).getName();
+                    String xjlxNames = "";
+                    if (xjlxNames != null) {
+                        for (int i = 0; i < type.size(); i++) {
+                            if (i == 0) {
+                                xjlxNames += type.get(i).getName();
+                            } else {
+                                xjlxNames += "," + type.get(i).getName();
                             }
 
 
                         }
                     }
-                    intent.putExtra("items",xjlxNames);
+                    intent.putExtra("items", xjlxNames);
                     startActivityForResult(intent, 4);
-                }else{
-                    Map<String,Object> map = new HashMap<>();
+                } else {
+                    Map<String, Object> map = new HashMap<>();
 
                     HttpUtil.getInstance().postJsonObjectRequest("apps/sxxj/xjlx", map, new HttpListener<JSONObject>() {
                         @Override
-                        public void onSuccess(JSONObject result)  {
+                        public void onSuccess(JSONObject result) {
                             try {
                                 type.clear();
-                                String json =  result.getJSONArray("data").toString();
-                                type = new Gson().fromJson(json,new TypeToken<List<Type>>(){}.getType());
+                                String json = result.getJSONArray("data").toString();
+                                type = new Gson().fromJson(json, new TypeToken<List<Type>>() {
+                                }.getType());
 
                                 Intent intent = new Intent(SxxjSaveActivity.this, TextPickActivity.class);
-                                String str="";
-                                for(int i=0;i<type.size();i++){
-                                    if(i==0){
-                                        str+=type.get(i).getName();
-                                    }else{
-                                        str+=","+type.get(i).getName();
+                                String str = "";
+                                for (int i = 0; i < type.size(); i++) {
+                                    if (i == 0) {
+                                        str += type.get(i).getName();
+                                    } else {
+                                        str += "," + type.get(i).getName();
                                     }
                                 }
-                                intent.putExtra("items",str);
+                                intent.putExtra("items", str);
                                 startActivityForResult(intent, 4);
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 e.printStackTrace();
 
                             }
                         }
+
                         @Override
                         public void onError(VolleyError error) {
                             showMessage(error.getMessage());
@@ -195,11 +185,9 @@ public class SxxjSaveActivity extends MyActivity {
 
     }
 
-    public void open(int position){
+    public void open(int position) {
         FileUtil.openFileByUrl(mContext, getDownLoadUrl(fjIds.get(position)), fjNames.get(position));
     }
-
-
 
 
     @Override
@@ -207,41 +195,31 @@ public class SxxjSaveActivity extends MyActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case 4:
-                if(resultCode == RESULT_OK){
-                  int   index = data.getIntExtra("index",0);
-                    xjlxId=type.get(index).getId();
+                if (resultCode == RESULT_OK) {
+                    int index = data.getIntExtra("index", 0);
+                    xjlxId = type.get(index).getId();
                     xjlx.setText(type.get(index).getName());
                 }
                 break;
-
-            case EX_FILE_PICKER_RESULT:
-                if (resultCode == RESULT_OK) {
-                        //If it is a file selection mode, you need to get the path collection of all the files selected
-                        //List<String> list = data.getStringArrayListExtra(Constant.RESULT_INFO);//Constant.RESULT_INFO == "paths"
-                        List<String> list = data.getStringArrayListExtra("paths");
-                        if(list.size()>0) {
-                            Toast.makeText(getApplicationContext(), "selected " + list.get(0), Toast.LENGTH_SHORT).show();
-                            updateImg( list.get(0));
-                        }
-                }
         }
     }
 
 
-    public void getCg(){
-        Map<String,Object> map = new HashMap<>();
-        map.put("id",id);
-        HttpUtil.getInstance().gsonRequest(new TypeToken<Detail>(){}, "apps/sxxj/cg", map, new HttpListener<Detail>() {
+    public void getCg() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", id);
+        HttpUtil.getInstance().gsonRequest(new TypeToken<Detail>() {
+        }, "apps/sxxj/cg", map, new HttpListener<Detail>() {
             @Override
             public void onSuccess(Detail result) {
-                detail=result;
-                if(detail!=null){
+                detail = result;
+                if (detail != null) {
                     xjnr.setText(detail.getNr());
-                    if(detail.getFjId()!=null){
-                      String str1[] =  detail.getFjId().split(",");
-                        String str2[] =  detail.getFjName().split(",");
-                        for(int i=0;i<str1.length;i++){
-                            if(StringUtils.isNotEmpty(str1[i])) {
+                    if (detail.getFjId() != null) {
+                        String str1[] = detail.getFjId().split(",");
+                        String str2[] = detail.getFjName().split(",");
+                        for (int i = 0; i < str1.length; i++) {
+                            if (StringUtils.isNotEmpty(str1[i])) {
                                 fjIds.add(str1[i]);
                                 fjNames.add(str2[i]);
                             }
@@ -252,6 +230,7 @@ public class SxxjSaveActivity extends MyActivity {
                     }
                 }
             }
+
             @Override
             public void onError(VolleyError error) {
                 showMessage(error.getMessage());
@@ -260,14 +239,49 @@ public class SxxjSaveActivity extends MyActivity {
     }
 
     public void ablum() {
-        new LFilePicker()
-                .withActivity(this)
-                .withRequestCode(EX_FILE_PICKER_RESULT)
-                .withStartPath("/sdcard/")
-                .withMutilyMode(false)
-                .start();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+            return;
+        }
+        open();
     }
 
+
+    private  void open(){
+        FilePicker picker = new FilePicker(SxxjSaveActivity.this, 1);
+        picker.setShowHideDir(false);
+        //picker.setAllowExtensions(new String[]{".apk"});
+        picker.setRootPath("/sdcard/");
+        picker.setCanceledOnTouchOutside(true);
+        picker.setOnFilePickListener(new FilePicker.OnFilePickListener() {
+            @Override
+            public void onFilePicked(String currentPath) {
+                showMessage(currentPath);
+                updateImg(currentPath);
+            }
+        });
+        picker.show();
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        //这里实现用户操作，或同意或拒绝的逻辑
+        switch (requestCode) {
+            case 1: {
+                // 授权被允许
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    open();
+                } else {
+                    showMessage("授权请求被您拒绝");
+                }
+                return;
+            }
+        }
+    }
 
     public void submit(String type) {
         if(!StringUtils.isNotEmpty(xjlxId)){

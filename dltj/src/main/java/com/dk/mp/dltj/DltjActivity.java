@@ -34,9 +34,6 @@ public class DltjActivity extends BaseFragment {
 		mError = (ErrorLayout) view.findViewById(com.dk.mp.core.R.id.error_layout);
 		mProgressBar = (ProgressBar) view.findViewById(com.dk.mp.core.R.id.progressbar);
 		String type=getArguments().getString("type");
-		String url = "http://www.baidu.com";
-
-
 
 		mError.setErrorType(ErrorLayout.LOADDATA);
 		if(DeviceUtil.checkNet()){
