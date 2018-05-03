@@ -1,12 +1,14 @@
 package com.dk.mp.apps.gzbxnew;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.android.volley.VolleyError;
 import com.dk.mp.apps.gzbxnew.adapter.FaultRepairApplyAdapter;
@@ -17,6 +19,7 @@ import com.dk.mp.core.entity.PageMsg;
 import com.dk.mp.core.http.HttpClientUtil;
 import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
+import com.dk.mp.core.util.BroadcastUtil;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
 import com.dk.mp.core.util.DeviceUtil;
 import com.dk.mp.core.view.listview.XListView;
@@ -46,6 +49,7 @@ public class FaultRepairApplyActivity extends MyActivity implements IXListViewLi
 	private ImageView  addRepair;//添加按钮
 	private List<Gzbx> mList = new ArrayList<Gzbx>();
 	private FaultRepairApplyAdapter mAdapter;
+	LinearLayout zwsj;
 
     @Override
     protected int getLayoutID() {
@@ -57,7 +61,18 @@ public class FaultRepairApplyActivity extends MyActivity implements IXListViewLi
 		super.initialize();
 		initView();
 		onRefresh();
+		BroadcastUtil.registerReceiver(mContext, mRefreshBroadcastReceiver, new String[]{"refresh_wdbx"});
 	}
+
+	private BroadcastReceiver mRefreshBroadcastReceiver = new BroadcastReceiver() {
+		@SuppressLint("NewApi") @Override
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+			if (action.equals("refresh_wdbx")) {
+				onRefresh();
+			}
+		}
+	};
 
 	@Override
 	protected void initView(){
@@ -68,7 +83,7 @@ public class FaultRepairApplyActivity extends MyActivity implements IXListViewLi
 		listView.setPullLoadEnable(true);
 		listView.setPullRefreshEnable(true);
 		listView.setXListViewListener(this);
-		
+		zwsj=(LinearLayout) findViewById(R.id.zwsj);
 		addRepair = (ImageView) findViewById(R.id.add_repair);
 		addRepair.setOnClickListener(new OnClickListener() {
 			@Override
@@ -186,6 +201,15 @@ public class FaultRepairApplyActivity extends MyActivity implements IXListViewLi
 					mAdapter.setmData(mList);
 					mAdapter.notifyDataSetChanged();
 				}
+
+				if(mList.size()==0){
+					zwsj.setVisibility(View.VISIBLE);
+					listView.setVisibility(View.GONE);
+				}else{
+					zwsj.setVisibility(View.GONE);
+					listView.setVisibility(View.VISIBLE);
+				}
+
 				if (pageNo >= countPage) {
 					listView.hideFooter();
 				} else {
@@ -200,9 +224,5 @@ public class FaultRepairApplyActivity extends MyActivity implements IXListViewLi
 		};
 	};
 	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		onRefresh();
-	};
+
 }

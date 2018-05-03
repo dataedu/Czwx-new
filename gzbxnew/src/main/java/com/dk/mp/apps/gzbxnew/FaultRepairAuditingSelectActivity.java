@@ -34,6 +34,7 @@ import com.dk.mp.apps.gzbxnew.http.HttpUtil;
 import com.dk.mp.core.http.HttpClientUtil;
 import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
+import com.dk.mp.core.util.BroadcastUtil;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
 import com.dk.mp.core.util.DeviceUtil;
 import com.dk.mp.core.util.Logger;
@@ -394,6 +395,7 @@ public class FaultRepairAuditingSelectActivity extends MyActivity implements IXL
 				Result result = HttpUtil.getResult(arg0);
 				if(result.getCode() == 200 && (Boolean)result.getData()){
 					showMessage(result.getMsg());
+					BroadcastUtil.sendBroadcast(mContext,"gzbxpl");
 					finish();
 					if(com.dk.mp.apps.gzbxnew
 							.FaultRepairAuditingDetailActivity.instance != null){

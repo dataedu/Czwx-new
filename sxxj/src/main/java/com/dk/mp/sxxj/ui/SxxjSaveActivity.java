@@ -257,7 +257,6 @@ public class SxxjSaveActivity extends MyActivity {
         picker.setOnFilePickListener(new FilePicker.OnFilePickListener() {
             @Override
             public void onFilePicked(String currentPath) {
-                showMessage(currentPath);
                 updateImg(currentPath);
             }
         });

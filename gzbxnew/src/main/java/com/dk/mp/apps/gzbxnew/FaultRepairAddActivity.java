@@ -63,6 +63,7 @@ import com.dk.mp.core.entity.LoginMsg;
 import com.dk.mp.core.http.HttpClientUtil;
 import com.dk.mp.core.http.request.HttpListener;
 import com.dk.mp.core.ui.MyActivity;
+import com.dk.mp.core.util.BroadcastUtil;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
 import com.dk.mp.core.util.DeviceUtil;
 import com.dk.mp.core.util.Logger;
@@ -531,6 +532,7 @@ public class FaultRepairAddActivity extends MyActivity {
 					if(FaultRepairApplyDetailActivity.instance != null){
 						FaultRepairApplyDetailActivity.instance.finish();
 					}
+					BroadcastUtil.sendBroadcast(mContext,"refresh_wdbx");
 					finish();
 				}else{
 					showMessage(result.getMsg());
@@ -679,9 +681,9 @@ public class FaultRepairAddActivity extends MyActivity {
 		LoginMsg loginMsg = new CoreSharedPreferencesHelper(mContext).getLoginMsg();
 		String mUrl = getReString(R.string.uploadUrlHq);
 		if(loginMsg != null) {//loginMsg.getUid()
-			mUrl +="/independent.service?.lm=bxgl-dwjk&.ms=view&action=fjscjk&.ir=true&type=bxsqAttachment&userId="+loginMsg.getUid()+"&password="+ loginMsg.getEncpsw() +"&ownerId="+uuid;
+			mUrl +="/independent.service?.lm=bxgl-dwjk&.ms=view&action=fjscjk&.ir=true&type=bxsqAttachment&userId="+loginMsg.getUid()+"&password="+ loginMsg.getEncpsw() +"&ownerId=1"+uuid;
 		}else{
-			mUrl +="/independent.service?.lm=bxgl-dwjk&.ms=view&action=fjscjk&.ir=true&type=bxsqAttachment&ownerId="+uuid;
+			mUrl +="/independent.service?.lm=bxgl-dwjk&.ms=view&action=fjscjk&.ir=true&type=bxsqAttachment&ownerId=1"+uuid;
 		}
 
 		Logger.info("POST 请求连接=======" + mUrl);
