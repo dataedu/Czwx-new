@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">i常卫</string>
 
-    <!--本地环境
-    <string name="rootUrl">http://192.168.3.163:8071/mp-czwx/</string>-->
-    <!--现场环境-->
-    <string name="rootUrl">http://mobile.tsyl.cn/</string>
+    <!--本地环境-->
+    <string name="rootUrl">http://192.168.3.163:8071/mp-czwx/</string>
+    <!--现场环境
+    <string name="rootUrl">http://mobile.tsyl.cn/</string>-->
     <!--<string name="uploadUrlXg">http://192.168.3.221:8081/stargate/</string>-->
     <string name="uploadUrlHq">http://hq.tsyl.cn/</string>
     <string name="uploadUrlXg">http://xg.tsyl.cn/</string>

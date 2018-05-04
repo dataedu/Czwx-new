@@ -39,6 +39,7 @@ public class KsapCommonActivity extends MyActivity implements XListView.IXListVi
     public String pcId = "";
     public String pcName = "";
     public String key = "";
+    long totalPages=1;
     KsapAdapter ksapAdapter;
 
     @Override
@@ -66,7 +67,11 @@ public class KsapCommonActivity extends MyActivity implements XListView.IXListVi
     @Override
     public void onLoadMore() {
         pageNo++;
-        getList();
+        if(pageNo<=totalPages) {
+            getList();
+        }else{
+            myListView.hideFooter();
+        }
     }
 
     @Override
@@ -94,6 +99,7 @@ public class KsapCommonActivity extends MyActivity implements XListView.IXListVi
                     if (bean.getMsg() != null) {
                         showMessage(bean.getMsg());
                     } else {
+                        totalPages=bean.getTotalPages();
                         List<Ksap> temp = bean.getList();
                         if (pageNo == 1) {
                             list = temp;

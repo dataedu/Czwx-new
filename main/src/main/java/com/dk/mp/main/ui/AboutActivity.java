@@ -83,7 +83,12 @@ public class AboutActivity extends MyActivity {
                     Intent intent = new Intent();
                     intent.setClass(mContext, HttpWebActivity.class);
                     intent.putExtra("title", "检查更新");
-                    intent.putExtra("url", "http://a.app.qq.com/o/simple.jsp?pkgname="+ DeviceUtil.getPackage(mContext));
+                    if(StringUtils.isNotEmpty(url)){
+                        intent.putExtra("url", url);
+                    }else{
+                        intent.putExtra("url", "http://a.app.qq.com/o/simple.jsp?pkgname="+ DeviceUtil.getPackage(mContext));
+                    }
+
                     startActivity(intent);
                 }
             });
@@ -99,6 +104,7 @@ public class AboutActivity extends MyActivity {
         if(DeviceUtil.checkNet()){
             Map<String,Object> map = new HashMap<>();
             map.put("versionId", DeviceUtil.getVersionCode(mContext));
+            map.put("packAge", DeviceUtil.getPackage(mContext));
             map.put("platform","android");
             HttpUtil.getInstance().postJsonObjectRequest("version", map, new HttpListener<JSONObject>() {
                 @Override
