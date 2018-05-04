@@ -109,6 +109,7 @@ public class AboutActivity extends MyActivity {
             HttpUtil.getInstance().postJsonObjectRequest("version", map, new HttpListener<JSONObject>() {
                 @Override
                 public void onSuccess(JSONObject result) {
+                    showErrorMsg(result.toString());
                     try {
                         mError.setErrorType(ErrorLayout.HIDE_LAYOUT);
                         if(result != null) {
