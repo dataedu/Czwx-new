@@ -1,5 +1,6 @@
 package com.dk.mp.core.ui;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.dk.mp.core.R;
+import com.dk.mp.core.dialog.MsgDialog;
 import com.dk.mp.core.entity.LoginMsg;
 import com.dk.mp.core.http.request.HttpRequest;
 import com.dk.mp.core.util.CoreSharedPreferencesHelper;
@@ -98,10 +100,10 @@ public class HttpWebActivity extends MyActivity {
             mProgressBar = progressBar;
         }
 
-        public boolean shouldOverviewUrlLoading(WebView view, String url) {
-            Logger.info("url==========="+url);
-            view.loadUrl(getUrl(url));
-            return true;
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(getUrl(url));
+                return true;
         }
 
         @Override
